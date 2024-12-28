@@ -1,0 +1,347 @@
+[gd_scene load_steps=26 format=4 uid="uid://dexxba02ycjr0"]
+
+[ext_resource type="Script" path="res://Code/UI/main_menu.gd" id="1_c6hhf"]
+[ext_resource type="Script" path="res://Gameplay/BASE/main_gameplay.gd" id="1_f785w"]
+[ext_resource type="Texture2D" uid="uid://dnlgqndanc3fq" path="res://Assets, Visual/Tiles/world_tileset.png" id="3_2pget"]
+[ext_resource type="Texture2D" uid="uid://bol8mxnv2gofb" path="res://Assets, Visual/Characters/knight.png" id="3_hx8gu"]
+[ext_resource type="Script" path="res://Code/Characters/player_character.gd" id="3_u8hg1"]
+[ext_resource type="Script" path="res://Code/Tile Maps/ground_tiles.gd" id="4_8vkrt"]
+[ext_resource type="Script" path="res://Code/Input/input_router.gd" id="5_x3roq"]
+[ext_resource type="Script" path="res://Code/Projectiles/grabber_2d.gd" id="7_sueqx"]
+[ext_resource type="Script" path="res://Code/Projectiles/launcher_2d.gd" id="8_1f42v"]
+[ext_resource type="Script" path="res://Code/Projectiles/projectile_ring.gd" id="8_ow6ti"]
+[ext_resource type="Script" path="res://Code/Projectiles/projectile_pool.gd" id="9_2qdxl"]
+[ext_resource type="Script" path="res://Code/Projectiles/projectile_ring_point.gd" id="9_bkcq7"]
+[ext_resource type="PackedScene" uid="uid://cwf7p02m0pwcn" path="res://Gameplay/BASE/ENEMIES/penguin_body_2d.tscn" id="14_heqqj"]
+[ext_resource type="Script" path="res://Code/Characters/enemy_patrol_path.gd" id="15_cdplv"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m6qeu"]
+texture = ExtResource("3_2pget")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+3:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+8:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+6:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+2:11/0 = 0
+3:11/0 = 0
+4:11/0 = 0
+5:11/0 = 0
+0:12/0 = 0
+1:12/0 = 0
+2:12/0 = 0
+3:12/0 = 0
+4:12/0 = 0
+0:13/0 = 0
+1:13/0 = 0
+2:13/0 = 0
+3:13/0 = 0
+4:13/0 = 0
+5:13/0 = 0
+0:14/0 = 0
+1:14/0 = 0
+2:14/0 = 0
+3:14/0 = 0
+4:14/0 = 0
+0:15/0 = 0
+1:15/0 = 0
+2:15/0 = 0
+3:15/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_rhe5m"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_m6qeu")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_momrt"]
+atlas = ExtResource("3_hx8gu")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnfhb"]
+atlas = ExtResource("3_hx8gu")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hvuym"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_momrt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dnfhb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_txhd4"]
+radius = 4.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n6sor"]
+size = Vector2(16, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4orsq"]
+atlas = ExtResource("3_2pget")
+region = Rect2(112, 80, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x6mgh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4orsq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mktnh"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e4x77"]
+size = Vector2(64, 8)
+
+[node name="Main Gameplay" type="Node2D"]
+script = ExtResource("1_f785w")
+
+[node name="Main Menu" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_c6hhf")
+
+[node name="MarginContainer" type="MarginContainer" parent="Main Menu"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main Menu/MarginContainer"]
+layout_mode = 2
+
+[node name="Play Button" type="Button" parent="Main Menu/MarginContainer/VBoxContainer" groups=["Main Menu Buttons"]]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Quit Button")
+focus_neighbor_bottom = NodePath("../Options Button")
+text = "PLAY"
+
+[node name="Options Button" type="Button" parent="Main Menu/MarginContainer/VBoxContainer" groups=["Main Menu Buttons"]]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Play Button")
+focus_neighbor_bottom = NodePath("../Quit Button")
+text = "OPTIONS"
+
+[node name="Quit Button" type="Button" parent="Main Menu/MarginContainer/VBoxContainer" groups=["Main Menu Buttons"]]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Options Button")
+focus_neighbor_bottom = NodePath("../Play Button")
+text = "QUIT	"
+
+[node name="Player Spawn Point" type="Node2D" parent="." groups=["Player Spawn"]]
+position = Vector2(256, 0)
+
+[node name="TileMap Controller" type="Node" parent="."]
+
+[node name="Ground Tiles" type="TileMapLayer" parent="TileMap Controller" groups=["Ground Tiles"]]
+tile_map_data = PackedByteArray("AAABAA8AAAAAAAAAAAACAA8AAAAAAAAAAAADAA8AAAAAAAAAAAAEAA8AAAAAAAAAAAAFAA8AAAAAAAAAAAAGAA8AAAAAAAAAAAAHAA8AAAAAAAAAAAAIAA8AAAAAAAAAAAAJAA8AAAAAAAAAAAAKAA8AAAAAAAAAAAALAA8AAAAAAAAAAAAMAA8AAAAAAAAAAAANAA8AAAAAAAAAAAAOAA8AAAAAAAAAAAAPAA8AAAAAAAAAAAAQAA8AAAAAAAAAAAARAA8AAAAAAAAAAAASAA8AAAAAAAAAAAATAA8AAAAAAAAAAAAUAA8AAAAAAAAAAAAVAA8AAAAAAAAAAAAWAA8AAAAAAAAAAAAXAA8AAAAAAAAAAAAYAA8AAAAAAAAAAAAZAA8AAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA8AAAAAAAAAAAAaAA8AAAAAAAAAAAAbAA8AAAAAAAAAAAAcAA8AAAAAAAAAAAAdAA8AAAAAAAAAAAAeAA8AAAAAAAAAAAAfAA8AAAAAAAAAAAAfAA4AAAAAAAAAAAAfAA0AAAAAAAAAAAAfAAwAAAAAAAAAAAAfAAsAAAAAAAAAAAAfAAoAAAAAAAAAAAAfAAkAAAAAAAAAAAAfAAgAAAAAAAAAAAAfAAcAAAAAAAAAAAAfAAYAAAAAAAAAAAAfAAUAAAAAAAAAAAAfAAQAAAAAAAAAAAAfAAMAAAAAAAAAAAAfAAIAAAAAAAAAAAADAAwAAAAAAAAAAAAEAAwAAAAAAAAAAAAFAAwAAAAAAAAAAAAGAAwAAAAAAAAAAAAHAAwAAAAAAAAAAAAIAAwAAAAAAAAAAAAKAAkAAAAAAAAAAAALAAkAAAAAAAAAAAAMAAkAAAAAAAAAAAANAAkAAAAAAAAAAAAOAAkAAAAAAAAAAAAPAAkAAAAAAAAAAAAQAAkAAAAAAAAAAAARAAkAAAAAAAAAAAAaAAcAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_rhe5m")
+script = ExtResource("4_8vkrt")
+
+[node name="Player Character" type="CharacterBody2D" parent="." groups=["Player Character"]]
+position = Vector2(180, 106)
+floor_max_angle = 1.22173
+script = ExtResource("3_u8hg1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player Character"]
+sprite_frames = SubResource("SpriteFrames_hvuym")
+autoplay = "default"
+frame_progress = 0.941993
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player Character"]
+position = Vector2(0, 8)
+shape = SubResource("CircleShape2D_txhd4")
+
+[node name="Grabber2D" type="Area2D" parent="Player Character"]
+script = ExtResource("7_sueqx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player Character/Grabber2D"]
+position = Vector2(16, 3)
+shape = SubResource("RectangleShape2D_n6sor")
+
+[node name="Projectile Ring" type="Node2D" parent="Player Character/Grabber2D"]
+script = ExtResource("8_ow6ti")
+
+[node name="ProjectileRingPoint" type="Node2D" parent="Player Character/Grabber2D/Projectile Ring"]
+position = Vector2(24, 0)
+script = ExtResource("9_bkcq7")
+
+[node name="ProjectileRingPoint8" type="Node2D" parent="Player Character/Grabber2D/Projectile Ring"]
+position = Vector2(16, -12)
+script = ExtResource("9_bkcq7")
+
+[node name="ProjectileRingPoint2" type="Node2D" parent="Player Character/Grabber2D/Projectile Ring"]
+position = Vector2(16, 12)
+script = ExtResource("9_bkcq7")
+
+[node name="ProjectileRingPoint7" type="Node2D" parent="Player Character/Grabber2D/Projectile Ring"]
+position = Vector2(0, -16)
+script = ExtResource("9_bkcq7")
+
+[node name="ProjectileRingPoint3" type="Node2D" parent="Player Character/Grabber2D/Projectile Ring"]
+position = Vector2(0, 16)
+script = ExtResource("9_bkcq7")
+
+[node name="ProjectileRingPoint6" type="Node2D" parent="Player Character/Grabber2D/Projectile Ring"]
+position = Vector2(-16, -12)
+script = ExtResource("9_bkcq7")
+
+[node name="ProjectileRingPoint4" type="Node2D" parent="Player Character/Grabber2D/Projectile Ring"]
+position = Vector2(-16, 12)
+script = ExtResource("9_bkcq7")
+
+[node name="ProjectileRingPoint5" type="Node2D" parent="Player Character/Grabber2D/Projectile Ring"]
+position = Vector2(-24, 0)
+script = ExtResource("9_bkcq7")
+
+[node name="Input Router" type="Node" parent="."]
+script = ExtResource("5_x3roq")
+
+[node name="Launcher2D" type="StaticBody2D" parent="."]
+position = Vector2(416, 96)
+script = ExtResource("8_1f42v")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Launcher2D"]
+position = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_x6mgh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Launcher2D"]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_mktnh")
+
+[node name="Projectile Pool" type="Node" parent="." groups=["Projectile Pool"]]
+script = ExtResource("9_2qdxl")
+
+[node name="Patrol Path" type="Area2D" parent="."]
+position = Vector2(112, 176)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("15_cdplv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Patrol Path"]
+position = Vector2(-17, 12)
+shape = SubResource("RectangleShape2D_e4x77")
+
+[node name="PenguinBody2D" parent="." instance=ExtResource("14_heqqj")]
+
+[connection signal="on_root_ready" from="." to="Main Menu" method="_on_main_gameplay_on_root_ready"]
+[connection signal="focus_entered" from="Main Menu/MarginContainer/VBoxContainer/Play Button" to="Main Menu" method="_on_play_button_focus_entered"]
+[connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/Play Button" to="Main Menu" method="_on_play_button_pressed"]
+[connection signal="focus_entered" from="Main Menu/MarginContainer/VBoxContainer/Options Button" to="Main Menu" method="_on_options_button_focus_entered"]
+[connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/Options Button" to="Main Menu" method="_on_options_button_pressed"]
+[connection signal="focus_entered" from="Main Menu/MarginContainer/VBoxContainer/Quit Button" to="Main Menu" method="_on_quit_button_focus_entered"]
+[connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/Quit Button" to="Main Menu" method="_on_quit_button_pressed"]
+[connection signal="on_player_death" from="Player Character" to="." method="accept_player_death"]
+[connection signal="pass_input_direction_cancelled" from="Input Router" to="Player Character" method="_accept_direction_input_cancel"]
+[connection signal="pass_input_direction_started" from="Input Router" to="Player Character" method="_accept_direction_input_start"]
+[connection signal="pass_input_fire_started" from="Input Router" to="Player Character" method="accept_fire_input_start"]
+[connection signal="pass_input_grab_started" from="Input Router" to="Player Character" method="accept_grab_input_start"]
+[connection signal="body_entered" from="Patrol Path" to="Patrol Path" method="_on_body_entered"]

@@ -1,0 +1,84 @@
+[gd_scene load_steps=12 format=3 uid="uid://cwf7p02m0pwcn"]
+
+[ext_resource type="Script" path="res://Code/Characters/penguin_body_2d.gd" id="1_shm4k"]
+[ext_resource type="Texture2D" uid="uid://vfqg8vsqbv7l" path="res://Assets, Visual/Characters/slime_green.png" id="2_m07bu"]
+[ext_resource type="Script" path="res://Code/Characters/enemy_kill_box.gd" id="3_h71me"]
+[ext_resource type="Script" path="res://Code/Projectiles/fire_point_2d.gd" id="4_2vt6g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8s4hf"]
+atlas = ExtResource("2_m07bu")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b2l6b"]
+atlas = ExtResource("2_m07bu")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hoyg4"]
+atlas = ExtResource("2_m07bu")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvl3l"]
+atlas = ExtResource("2_m07bu")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2sy4a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8s4hf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b2l6b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hoyg4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vvl3l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hoyg4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b2l6b")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s4rk6"]
+size = Vector2(10, 11)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lxm4x"]
+radius = 7.0
+
+[node name="PenguinBody2D" type="CharacterBody2D"]
+position = Vector2(73, 163)
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_shm4k")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2sy4a")
+autoplay = "default"
+frame = 2
+frame_progress = 0.602964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6.5)
+shape = SubResource("RectangleShape2D_s4rk6")
+
+[node name="Enemy Kill Box" type="Area2D" parent="."]
+position = Vector2(0, 2)
+script = ExtResource("3_h71me")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy Kill Box"]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_lxm4x")
+
+[node name="FirePoint2D" type="Node2D" parent="."]
+position = Vector2(13.835, 3.03)
+script = ExtResource("4_2vt6g")
+
+[connection signal="body_entered" from="Enemy Kill Box" to="Enemy Kill Box" method="_on_body_entered"]

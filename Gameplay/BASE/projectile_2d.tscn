@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://b7pxo4rmplpgf"]
+
+[ext_resource type="Script" path="res://Code/Projectiles/projectile_2d.gd" id="1_na4j8"]
+[ext_resource type="Texture2D" uid="uid://cb8dmi2vf8gx6" path="res://Assets, Visual/Projectiles/fruit.png" id="2_pv5v5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3p68"]
+atlas = ExtResource("2_pv5v5")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ptyqt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3p68")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p3h0y"]
+radius = 4.0
+
+[node name="Projectile2D" type="CharacterBody2D"]
+position = Vector2(408, 104)
+motion_mode = 1
+script = ExtResource("1_na4j8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 10
+sprite_frames = SubResource("SpriteFrames_ptyqt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_p3h0y")
