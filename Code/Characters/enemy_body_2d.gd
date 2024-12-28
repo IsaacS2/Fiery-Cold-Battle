@@ -22,6 +22,10 @@ func _ready() -> void:
 			break
 	pool = get_tree().get_first_node_in_group(Groups.projectile_pool)
 	fire_countdown = fire_delay
+	_enemy_specific_ready_override()
+
+func _enemy_specific_ready_override() -> void:
+	pass
 
 func accept_patrol_path(path_node: EnemyPatrolPath, col_node: CollisionShape2D) -> void:
 	if has_path:

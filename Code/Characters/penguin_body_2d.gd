@@ -3,6 +3,7 @@ class_name PenguinBody2D
 
 const SPEED: float = 50.0
 
+
 var direction_value: int = -1
 
 func _physics_process(delta: float) -> void:
