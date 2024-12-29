@@ -47,4 +47,5 @@ func on_hit_elemental(element: Common.Elements) -> void:
 
 func _on_die() -> void:
 	AutoloadScoreTracker.accept_enemy_die(self)
+	SoundManager.play_enemy_death()
 	queue_free()

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://do7ebkjmtgcxv"
+path="res://.godot/imported/DGX_jerboa_hurt-004.ogg-187aaba0427b0639cee67d0ac77ba8aa.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets, Audio/DGX/DGX/DGX_jerboa_hurt/DGX_jerboa_hurt-004.ogg"
+dest_files=["res://.godot/imported/DGX_jerboa_hurt-004.ogg-187aaba0427b0639cee67d0ac77ba8aa.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

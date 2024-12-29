@@ -42,8 +42,8 @@ func _on_collision(collision: KinematicCollision2D) -> void:
 		deactivate()
 	elif collisions_left > 0:
 		velocity = velocity.bounce(collision.get_normal())
-		#bounce sound
-		SoundManager.play_test_saw()
+		#bounce Sound
+		SoundManager.play_projectile_bounce()
 		collisions_left -= 1
 	else:
 		deactivate()
