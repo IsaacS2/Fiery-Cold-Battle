@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://dexxba02ycjr0"]
+[gd_scene load_steps=25 format=4 uid="uid://dexxba02ycjr0"]
 
 [ext_resource type="Script" path="res://Code/UI/main_menu.gd" id="1_c6hhf"]
 [ext_resource type="Script" path="res://Gameplay/BASE/main_gameplay.gd" id="1_f785w"]
@@ -12,8 +12,8 @@
 [ext_resource type="Script" path="res://Code/Projectiles/projectile_ring.gd" id="8_ow6ti"]
 [ext_resource type="Script" path="res://Code/Projectiles/projectile_pool.gd" id="9_2qdxl"]
 [ext_resource type="Script" path="res://Code/Projectiles/projectile_ring_point.gd" id="9_bkcq7"]
+[ext_resource type="PackedScene" uid="uid://btl5ari0641f5" path="res://Gameplay/BASE/ENEMIES/enemy_patrol_path_2d.tscn" id="13_rd6lr"]
 [ext_resource type="PackedScene" uid="uid://db6fkft5xo5dn" path="res://Gameplay/BASE/ENEMIES/helicopter_body_2d.tscn" id="14_528y5"]
-[ext_resource type="Script" path="res://Code/Characters/enemy_patrol_path.gd" id="15_cdplv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m6qeu"]
 texture = ExtResource("3_2pget")
@@ -196,9 +196,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mktnh"]
 size = Vector2(16, 16)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e4x77"]
-size = Vector2(64, 8)
-
 [node name="Main Gameplay" type="Node2D"]
 script = ExtResource("1_f785w")
 
@@ -320,28 +317,11 @@ shape = SubResource("RectangleShape2D_mktnh")
 [node name="Projectile Pool" type="Node" parent="." groups=["Projectile Pool"]]
 script = ExtResource("9_2qdxl")
 
+[node name="EnemyPatrolPath2D" parent="." instance=ExtResource("13_rd6lr")]
+position = Vector2(320, 24)
+
 [node name="HelicopterBody2D" parent="." instance=ExtResource("14_528y5")]
-position = Vector2(288, 40)
-
-[node name="Patrol Path" type="Area2D" parent="."]
-position = Vector2(112, 176)
-collision_layer = 3
-collision_mask = 3
-script = ExtResource("15_cdplv")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Patrol Path"]
-position = Vector2(-17, 12)
-shape = SubResource("RectangleShape2D_e4x77")
-
-[node name="Patrol Path2" type="Area2D" parent="."]
-position = Vector2(272, 32)
-collision_layer = 3
-collision_mask = 3
-script = ExtResource("15_cdplv")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Patrol Path2"]
-position = Vector2(-16, 12)
-shape = SubResource("RectangleShape2D_e4x77")
+position = Vector2(352, 24)
 
 [connection signal="on_root_ready" from="." to="Main Menu" method="_on_main_gameplay_on_root_ready"]
 [connection signal="focus_entered" from="Main Menu/MarginContainer/VBoxContainer/Play Button" to="Main Menu" method="_on_play_button_focus_entered"]
@@ -355,5 +335,3 @@ shape = SubResource("RectangleShape2D_e4x77")
 [connection signal="pass_input_direction_started" from="Input Router" to="Player Character" method="_accept_direction_input_start"]
 [connection signal="pass_input_fire_started" from="Input Router" to="Player Character" method="accept_fire_input_start"]
 [connection signal="pass_input_grab_started" from="Input Router" to="Player Character" method="accept_grab_input_start"]
-[connection signal="body_entered" from="Patrol Path" to="Patrol Path" method="_on_body_entered"]
-[connection signal="body_entered" from="Patrol Path2" to="Patrol Path2" method="_on_body_entered"]
