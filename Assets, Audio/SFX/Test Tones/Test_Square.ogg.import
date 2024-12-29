@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b43gg15q14x3s"
+path="res://.godot/imported/Test_Square.ogg-3f52124ed71fb72d6da391d99ade4bae.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets, Audio/SFX/Test Tones/Test_Square.ogg"
+dest_files=["res://.godot/imported/Test_Square.ogg-3f52124ed71fb72d6da391d99ade4bae.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

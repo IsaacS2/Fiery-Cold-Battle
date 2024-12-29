@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://drv017acmym5s"]
+
+[ext_resource type="Script" path="res://Code/Enums and Globals/sound_manager.gd" id="1_8lswa"]
+[ext_resource type="AudioStream" uid="uid://bqp4sl7ehhg72" path="res://Assets, Audio/SFX/Test Tones/Test_Loop.ogg" id="2_m2dfm"]
+[ext_resource type="AudioStream" uid="uid://hx5bw6hst75e" path="res://Assets, Audio/SFX/Test Tones/Test_Sine.ogg" id="3_c0qss"]
+[ext_resource type="AudioStream" uid="uid://c3rcpjotgx068" path="res://Assets, Audio/SFX/Test Tones/Test_Saw.ogg" id="4_v6q2e"]
+[ext_resource type="AudioStream" uid="uid://b43gg15q14x3s" path="res://Assets, Audio/SFX/Test Tones/Test_Square.ogg" id="5_hx8kw"]
+[ext_resource type="AudioStream" uid="uid://c1l3ict2yci7m" path="res://Assets, Audio/Music/Theme_Master.mp3" id="6_j6j7t"]
+
+[node name="Sound_Manager" type="Node"]
+script = ExtResource("1_8lswa")
+
+[node name="test_tones" type="Node" parent="."]
+
+[node name="test_loop" type="AudioStreamPlayer" parent="test_tones"]
+stream = ExtResource("2_m2dfm")
+bus = &"SFX"
+
+[node name="test_sine" type="AudioStreamPlayer" parent="test_tones"]
+stream = ExtResource("3_c0qss")
+bus = &"SFX"
+
+[node name="test_saw" type="AudioStreamPlayer" parent="test_tones"]
+stream = ExtResource("4_v6q2e")
+bus = &"SFX"
+
+[node name="test_square" type="AudioStreamPlayer" parent="test_tones"]
+stream = ExtResource("5_hx8kw")
+bus = &"SFX"
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_j6j7t")
