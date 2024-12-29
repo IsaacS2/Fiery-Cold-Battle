@@ -1,0 +1,208 @@
+[gd_scene load_steps=16 format=3 uid="uid://bki8eopar5nrx"]
+
+[ext_resource type="Script" path="res://Gameplay/BASE/main_gameplay.gd" id="1_xfci5"]
+[ext_resource type="Script" path="res://Code/UI/main_menu.gd" id="2_jjvv1"]
+[ext_resource type="Script" path="res://Code/UI/score_field_ui.gd" id="3_onchm"]
+[ext_resource type="Script" path="res://Code/Characters/player_character.gd" id="4_sg4n4"]
+[ext_resource type="Texture2D" uid="uid://bol8mxnv2gofb" path="res://Assets, Visual/Characters/knight.png" id="5_0nimo"]
+[ext_resource type="Script" path="res://Code/Projectiles/grabber_2d.gd" id="6_bu2gc"]
+[ext_resource type="Script" path="res://Code/Projectiles/projectile_ring.gd" id="7_44spw"]
+[ext_resource type="Script" path="res://Code/Projectiles/projectile_ring_point.gd" id="8_sflyv"]
+[ext_resource type="Script" path="res://Code/Input/input_router.gd" id="9_4kkq3"]
+[ext_resource type="Script" path="res://Code/Projectiles/projectile_pool.gd" id="10_j2syc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_momrt"]
+atlas = ExtResource("5_0nimo")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnfhb"]
+atlas = ExtResource("5_0nimo")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ntm0g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_momrt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dnfhb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u473q"]
+radius = 4.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f4v4a"]
+size = Vector2(16, 26)
+
+[node name="Main Gameplay" type="Node2D"]
+script = ExtResource("1_xfci5")
+
+[node name="Main Menu" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_jjvv1")
+
+[node name="MarginContainer" type="MarginContainer" parent="Main Menu"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main Menu/MarginContainer"]
+layout_mode = 2
+
+[node name="Play Button" type="Button" parent="Main Menu/MarginContainer/VBoxContainer" groups=["Main Menu Buttons"]]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Quit Button")
+focus_neighbor_bottom = NodePath("../Options Button")
+text = "PLAY"
+
+[node name="Options Button" type="Button" parent="Main Menu/MarginContainer/VBoxContainer" groups=["Main Menu Buttons"]]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Play Button")
+focus_neighbor_bottom = NodePath("../Quit Button")
+text = "OPTIONS"
+
+[node name="Quit Button" type="Button" parent="Main Menu/MarginContainer/VBoxContainer" groups=["Main Menu Buttons"]]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Options Button")
+focus_neighbor_bottom = NodePath("../Play Button")
+text = "QUIT	"
+
+[node name="UI Gameplay Header" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 512.0
+offset_bottom = 30.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="UI Gameplay Header"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(512, 32)
+layout_mode = 0
+offset_right = 512.0
+offset_bottom = 32.0
+
+[node name="PanelContainer" type="PanelContainer" parent="UI Gameplay Header/Panel"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 12.0
+offset_top = -12.0
+offset_right = 76.0
+offset_bottom = 12.0
+grow_vertical = 2
+
+[node name="Score Label" type="RichTextLabel" parent="UI Gameplay Header/Panel/PanelContainer"]
+custom_minimum_size = Vector2(48.29, 20)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/normal_font_size = 12
+text = "SCORE:"
+fit_content = true
+
+[node name="PanelContainer2" type="PanelContainer" parent="UI Gameplay Header/Panel"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 66.84
+offset_top = -12.0
+offset_right = 130.84
+offset_bottom = 12.0
+grow_vertical = 2
+
+[node name="ScoreFieldUI" type="RichTextLabel" parent="UI Gameplay Header/Panel/PanelContainer2"]
+custom_minimum_size = Vector2(48.29, 20)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/normal_font_size = 12
+text = "9999"
+fit_content = true
+script = ExtResource("3_onchm")
+
+[node name="Player Spawn Point" type="Node2D" parent="." groups=["Player Spawn"]]
+position = Vector2(256, 0)
+
+[node name="TileMap Controller" type="Node" parent="."]
+
+[node name="Player Character" type="CharacterBody2D" parent="." groups=["Player Character"]]
+position = Vector2(180, 106)
+floor_max_angle = 1.22173
+script = ExtResource("4_sg4n4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player Character"]
+sprite_frames = SubResource("SpriteFrames_ntm0g")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player Character"]
+position = Vector2(0, 8)
+shape = SubResource("CircleShape2D_u473q")
+
+[node name="Grabber2D" type="Area2D" parent="Player Character"]
+script = ExtResource("6_bu2gc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player Character/Grabber2D"]
+position = Vector2(16, 3)
+shape = SubResource("RectangleShape2D_f4v4a")
+
+[node name="Projectile Ring" type="Node2D" parent="Player Character/Grabber2D"]
+script = ExtResource("7_44spw")
+
+[node name="ProjectileRingPoint" type="Node2D" parent="Player Character/Grabber2D/Projectile Ring"]
+position = Vector2(24, 0)
+script = ExtResource("8_sflyv")
+
+[node name="ProjectileRingPoint8" type="Node2D" parent="Player Character/Grabber2D/Projectile Ring"]
+position = Vector2(16, -12)
+script = ExtResource("8_sflyv")
+
+[node name="ProjectileRingPoint2" type="Node2D" parent="Player Character/Grabber2D/Projectile Ring"]
+position = Vector2(16, 12)
+script = ExtResource("8_sflyv")
+
+[node name="ProjectileRingPoint7" type="Node2D" parent="Player Character/Grabber2D/Projectile Ring"]
+position = Vector2(0, -16)
+script = ExtResource("8_sflyv")
+
+[node name="ProjectileRingPoint3" type="Node2D" parent="Player Character/Grabber2D/Projectile Ring"]
+position = Vector2(0, 16)
+script = ExtResource("8_sflyv")
+
+[node name="ProjectileRingPoint6" type="Node2D" parent="Player Character/Grabber2D/Projectile Ring"]
+position = Vector2(-16, -12)
+script = ExtResource("8_sflyv")
+
+[node name="ProjectileRingPoint4" type="Node2D" parent="Player Character/Grabber2D/Projectile Ring"]
+position = Vector2(-16, 12)
+script = ExtResource("8_sflyv")
+
+[node name="ProjectileRingPoint5" type="Node2D" parent="Player Character/Grabber2D/Projectile Ring"]
+position = Vector2(-24, 0)
+script = ExtResource("8_sflyv")
+
+[node name="Input Router" type="Node" parent="."]
+script = ExtResource("9_4kkq3")
+
+[node name="Projectile Pool" type="Node" parent="." groups=["Projectile Pool"]]
+script = ExtResource("10_j2syc")
+
+[connection signal="focus_entered" from="Main Menu/MarginContainer/VBoxContainer/Play Button" to="Main Menu" method="_on_play_button_focus_entered"]
+[connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/Play Button" to="Main Menu" method="_on_play_button_pressed"]
+[connection signal="focus_entered" from="Main Menu/MarginContainer/VBoxContainer/Options Button" to="Main Menu" method="_on_options_button_focus_entered"]
+[connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/Options Button" to="Main Menu" method="_on_options_button_pressed"]
+[connection signal="focus_entered" from="Main Menu/MarginContainer/VBoxContainer/Quit Button" to="Main Menu" method="_on_quit_button_focus_entered"]
+[connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/Quit Button" to="Main Menu" method="_on_quit_button_pressed"]
