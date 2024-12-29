@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/DGX_jerboa_hurt-001.ogg-cb48a5117164409833552
 [params]
 
 loop=false
-loop_offset=0
-bpm=0
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4

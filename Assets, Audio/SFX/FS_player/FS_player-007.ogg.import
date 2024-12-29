@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bb81c7gm7q68p"
+path="res://.godot/imported/FS_player-007.ogg-5491e3f7af9f228c900a4931a0b7e808.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets, Audio/SFX/FS_player/FS_player-007.ogg"
+dest_files=["res://.godot/imported/FS_player-007.ogg-5491e3f7af9f228c900a4931a0b7e808.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

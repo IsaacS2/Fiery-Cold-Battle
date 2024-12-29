@@ -33,8 +33,18 @@ func play_projectile_absorbed():
 	$Projectiles/projectile_absorbed.play()
 #endregion
 
+#region elemental attacks
+
+func play_fire_attack():
+	$Attacks/fire_attack.play()
+
+func play_ice_attack():
+	$Attacks/ice_attack.play()
+#endregion
+
 func play_absorb_on():
 	$Player/absorb_on.play
+	
 func _ready() -> void:
 	play_music()
  
