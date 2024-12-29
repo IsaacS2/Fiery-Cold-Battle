@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bje2vy4e22m6w"
+path="res://.godot/imported/Player_Gun_Fire-002.ogg-6e13dc5b03c16174dde4b319851b2573.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets, Audio/SFX/Projectiles/Player_Gun_Fire/Player_Gun_Fire-002.ogg"
+dest_files=["res://.godot/imported/Player_Gun_Fire-002.ogg-6e13dc5b03c16174dde4b319851b2573.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
