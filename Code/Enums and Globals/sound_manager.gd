@@ -70,6 +70,9 @@ func play_enemy_footstep():
 
 func play_enemy_jump():
 	$Enemies/enemy_jump.play()
+
+func play_enemy_death():
+	pass
 #endregion
 
 func _ready() -> void:

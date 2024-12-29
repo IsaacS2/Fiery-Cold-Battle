@@ -214,8 +214,8 @@ bus = &"SFX"
 
 [node name="projectile_bounce" type="AudioStreamPlayer" parent="Projectiles"]
 stream = SubResource("AudioStreamRandomizer_pihfp")
-volume_db = -0.937
-pitch_scale = 1.07
+volume_db = -6.559
+pitch_scale = 2.01
 bus = &"SFX"
 
 [node name="projectile_absorbed" type="AudioStreamPlayer" parent="Projectiles"]
