@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://dexxba02ycjr0"]
+[gd_scene load_steps=30 format=4 uid="uid://dexxba02ycjr0"]
 
 [ext_resource type="Script" path="res://Code/UI/main_menu.gd" id="1_c6hhf"]
 [ext_resource type="Script" path="res://Gameplay/BASE/main_gameplay.gd" id="1_f785w"]
@@ -16,6 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://btl5ari0641f5" path="res://Gameplay/BASE/ENEMIES/enemy_patrol_path_2d.tscn" id="13_rd6lr"]
 [ext_resource type="PackedScene" uid="uid://db6fkft5xo5dn" path="res://Gameplay/BASE/ENEMIES/helicopter_body_2d.tscn" id="14_528y5"]
 [ext_resource type="PackedScene" uid="uid://cwf7p02m0pwcn" path="res://Gameplay/BASE/ENEMIES/penguin_body_2d.tscn" id="14_ltfv3"]
+[ext_resource type="PackedScene" uid="uid://c8w8ra2kccgit" path="res://Gameplay/BASE/ELEMENT ZONES/ice_area_2d.tscn" id="18_fjuj4"]
+[ext_resource type="PackedScene" uid="uid://o6mf3wcqta3l" path="res://Gameplay/BASE/ELEMENT ZONES/fire_area_2d.tscn" id="19_7fbmi"]
+[ext_resource type="PackedScene" uid="uid://bf46gjrewk27s" path="res://Gameplay/BASE/ENEMIES/jerboa_body_2d.tscn" id="19_5342x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m6qeu"]
 texture = ExtResource("3_2pget")
@@ -388,6 +391,15 @@ position = Vector2(96, 184)
 [node name="PenguinBody2D" parent="." instance=ExtResource("14_ltfv3")]
 position = Vector2(80, 176)
 
+[node name="JerboaBody2D" parent="." instance=ExtResource("19_5342x")]
+position = Vector2(392, 224)
+
+[node name="IceArea2D" parent="." instance=ExtResource("18_fjuj4")]
+position = Vector2(232, 216)
+
+[node name="FireArea2D" parent="." instance=ExtResource("19_7fbmi")]
+position = Vector2(328, 216)
+
 [connection signal="on_root_ready" from="." to="Main Menu" method="_on_main_gameplay_on_root_ready"]
 [connection signal="focus_entered" from="Main Menu/MarginContainer/VBoxContainer/Play Button" to="Main Menu" method="_on_play_button_focus_entered"]
 [connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/Play Button" to="Main Menu" method="_on_play_button_pressed"]
@@ -400,3 +412,4 @@ position = Vector2(80, 176)
 [connection signal="pass_input_direction_started" from="Input Router" to="Player Character" method="_accept_direction_input_start"]
 [connection signal="pass_input_fire_started" from="Input Router" to="Player Character" method="accept_fire_input_start"]
 [connection signal="pass_input_grab_started" from="Input Router" to="Player Character" method="accept_grab_input_start"]
+[connection signal="pass_input_zone_trigger_started" from="Input Router" to="Player Character" method="accept_zone_trigger_input_start"]

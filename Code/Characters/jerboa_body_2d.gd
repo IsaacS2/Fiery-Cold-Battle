@@ -9,6 +9,9 @@ var jump_reset: bool = true
 
 var fire_reset: bool = false
 
+func _enemy_specific_ready_override() -> void:
+	element_vulnerable = Common.Elements.ICE
+
 func _physics_process(delta: float) -> void:
 	velocity.x = 0
 	

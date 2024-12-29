@@ -17,6 +17,8 @@ var isLeftInput: bool = false
 var isFacingRight: bool = true
 var isGrounded: bool = false
 
+var current_element: Common.Elements = Common.Elements.FIRE
+
 func _ready() -> void:
 	var children: Array = get_children()
 	for child in children:
@@ -29,6 +31,18 @@ func accept_grab_input_start() -> void:
 
 func accept_fire_input_start() -> void:
 	grabber.fire_projectiles()
+
+func accept_zone_trigger_input_start() -> void:
+	var element_areas = get_tree().get_nodes_in_group(Groups.element_areas)
+	for area in element_areas:
+		area.accept_trigger_input(current_element)
+	_swap_element()
+
+func _swap_element() -> void:
+	if current_element == Common.Elements.FIRE:
+		current_element = Common.Elements.ICE
+	elif current_element == Common.Elements.ICE:
+		current_element = Common.Elements.FIRE
 
 func _accept_direction_input_start(direction: Common.Direction) -> void:
 	if direction == Common.Direction.RIGHT:
