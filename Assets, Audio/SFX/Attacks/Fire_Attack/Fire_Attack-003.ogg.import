@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c7af4vffm0bln"
+path="res://.godot/imported/Fire_Attack-003.ogg-6265fe550b07dc00be87e336d22ca8b0.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets, Audio/SFX/Attacks/Fire_Attack/Fire_Attack-003.ogg"
+dest_files=["res://.godot/imported/Fire_Attack-003.ogg-6265fe550b07dc00be87e336d22ca8b0.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

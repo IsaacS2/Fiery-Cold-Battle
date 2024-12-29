@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://82k2vwuo27xp"
+path="res://.godot/imported/Ice_Attack-004.ogg-3b884c3fda6e279c6cf618681f69bf74.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets, Audio/SFX/Attacks/Ice_Attack/Ice_Attack-004.ogg"
+dest_files=["res://.godot/imported/Ice_Attack-004.ogg-3b884c3fda6e279c6cf618681f69bf74.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
