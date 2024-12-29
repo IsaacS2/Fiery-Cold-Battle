@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 Common="*res://Code/Enums and Globals/common.gd"
 Groups="*res://Code/Enums and Globals/groups.gd"
 AutoloadInputHandler="*res://Code/Input/autoload_input_handler.gd"
+SoundManager="*res://Gameplay/BASE/sound_manager.tscn"
 
 [display]
 
