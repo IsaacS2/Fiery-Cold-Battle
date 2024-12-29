@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b4hg64sy8kc1h"
+path="res://.godot/imported/DGX_penguin_hurt-004.ogg-0bc0918dc41dfef0ea5d7fb2d2561106.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets, Audio/DGX/DGX/DGX_penguin_hurt/DGX_penguin_hurt-004.ogg"
+dest_files=["res://.godot/imported/DGX_penguin_hurt-004.ogg-0bc0918dc41dfef0ea5d7fb2d2561106.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

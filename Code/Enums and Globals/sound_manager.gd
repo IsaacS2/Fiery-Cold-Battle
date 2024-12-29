@@ -18,9 +18,23 @@ func play_test_square():
 func play_music():
 	$music.play()
 
+#region Projectiles
+
 func play_projectile_bounce():
 	$Projectiles/projectile_bounce.play()
 
+func play_player_gun_fire():
+	$Projectiles/player_gun_fire.play()
+
+func play_enemy_gun_fire():
+	$Projectiles/enemy_gun_fire.play()
+
+func play_projectile_absorbed():
+	$Projectiles/projectile_absorbed.play()
+#endregion
+
+func play_absorb_on():
+	$Player/absorb_on.play
 func _ready() -> void:
 	play_music()
  

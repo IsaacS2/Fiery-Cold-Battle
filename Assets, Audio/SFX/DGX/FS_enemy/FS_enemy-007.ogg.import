@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b8eapmpakvd6b"
+path="res://.godot/imported/FS_enemy-007.ogg-10ec6a5911366b7069bc0d8b354571ef.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets, Audio/SFX/DGX/FS_enemy/FS_enemy-007.ogg"
+dest_files=["res://.godot/imported/FS_enemy-007.ogg-10ec6a5911366b7069bc0d8b354571ef.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

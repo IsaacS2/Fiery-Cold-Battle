@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://d2pd5efl5lbnu"
+path="res://.godot/imported/DGX_player_hurt-004.ogg-125308e0873fd8d201347f3078b14c5c.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets, Audio/DGX/DGX/DGX_player_hurt/DGX_player_hurt-004.ogg"
+dest_files=["res://.godot/imported/DGX_player_hurt-004.ogg-125308e0873fd8d201347f3078b14c5c.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

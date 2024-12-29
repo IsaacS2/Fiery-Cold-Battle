@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://drv017acmym5s"]
+[gd_scene load_steps=29 format=3 uid="uid://drv017acmym5s"]
 
 [ext_resource type="Script" path="res://Code/Enums and Globals/sound_manager.gd" id="1_8lswa"]
 [ext_resource type="AudioStream" uid="uid://bqp4sl7ehhg72" path="res://Assets, Audio/SFX/Test Tones/Test_Loop.ogg" id="2_m2dfm"]
@@ -10,6 +10,20 @@
 [ext_resource type="AudioStream" uid="uid://cb6kqno4b6dpl" path="res://Assets, Audio/SFX/Projectile_Bounce/Projectile_Bounce-002.ogg" id="8_5cfqq"]
 [ext_resource type="AudioStream" uid="uid://cq4lvaiyndgaj" path="res://Assets, Audio/SFX/Projectile_Bounce/Projectile_Bounce-003.ogg" id="9_36xqs"]
 [ext_resource type="AudioStream" uid="uid://ctaha4fegxlkf" path="res://Assets, Audio/SFX/Projectile_Bounce/Projectile_Bounce-004.ogg" id="10_51ccf"]
+[ext_resource type="AudioStream" uid="uid://n5yiq3clrj43" path="res://Assets, Audio/SFX/Projectile_Absorbed/Projectile_Absorbed-001.ogg" id="11_3tokq"]
+[ext_resource type="AudioStream" uid="uid://b7uhe7lc16cla" path="res://Assets, Audio/SFX/Projectile_Absorbed/Projectile_Absorbed-002.ogg" id="12_vnqx5"]
+[ext_resource type="AudioStream" uid="uid://bishosoc6pern" path="res://Assets, Audio/SFX/Projectile_Absorbed/Projectile_Absorbed-003.ogg" id="13_jrjol"]
+[ext_resource type="AudioStream" uid="uid://bqgeld82te85d" path="res://Assets, Audio/SFX/Projectile_Absorbed/Projectile_Absorbed-004.ogg" id="14_nawq5"]
+[ext_resource type="AudioStream" uid="uid://bj53ceatu6nak" path="res://Assets, Audio/SFX/Enemy_Gun_Fire/Enemy_Gun_Fire-001.ogg" id="15_b02c4"]
+[ext_resource type="AudioStream" uid="uid://7qyow08to1py" path="res://Assets, Audio/SFX/Enemy_Gun_Fire/Enemy_Gun_Fire-002.ogg" id="16_hhs5c"]
+[ext_resource type="AudioStream" uid="uid://bcqsduy6lepgm" path="res://Assets, Audio/SFX/Enemy_Gun_Fire/Enemy_Gun_Fire-003.ogg" id="17_0n71f"]
+[ext_resource type="AudioStream" uid="uid://d2ylel31l4i70" path="res://Assets, Audio/SFX/Enemy_Gun_Fire/Enemy_Gun_Fire-004.ogg" id="18_gilxf"]
+[ext_resource type="AudioStream" uid="uid://cagocoon5rigq" path="res://Assets, Audio/SFX/Enemy_Gun_Fire/Enemy_Gun_Fire-005.ogg" id="19_mxs7g"]
+[ext_resource type="AudioStream" uid="uid://ds1afic7g3sma" path="res://Assets, Audio/SFX/Player_Gun_Fire/Player_Gun_Fire-001.ogg" id="20_73dh6"]
+[ext_resource type="AudioStream" uid="uid://bje2vy4e22m6w" path="res://Assets, Audio/SFX/Player_Gun_Fire/Player_Gun_Fire-002.ogg" id="21_w63lj"]
+[ext_resource type="AudioStream" uid="uid://b8u1xa4jgm3ig" path="res://Assets, Audio/SFX/Player_Gun_Fire/Player_Gun_Fire-003.ogg" id="22_dvoan"]
+[ext_resource type="AudioStream" uid="uid://cm7l7wgjvabex" path="res://Assets, Audio/SFX/Player_Gun_Fire/Player_Gun_Fire-004.ogg" id="23_781lt"]
+[ext_resource type="AudioStream" uid="uid://wmslo5c5r8q8" path="res://Assets, Audio/SFX/Absorption_Loop/Absorption_Loop.ogg" id="24_2b8i4"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_pihfp"]
 random_pitch = 1.7
@@ -19,6 +33,28 @@ stream_0/stream = ExtResource("7_xtn6t")
 stream_1/stream = ExtResource("8_5cfqq")
 stream_2/stream = ExtResource("9_36xqs")
 stream_3/stream = ExtResource("10_51ccf")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_1m67x"]
+streams_count = 4
+stream_0/stream = ExtResource("11_3tokq")
+stream_1/stream = ExtResource("12_vnqx5")
+stream_2/stream = ExtResource("13_jrjol")
+stream_3/stream = ExtResource("14_nawq5")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_1phci"]
+streams_count = 5
+stream_0/stream = ExtResource("15_b02c4")
+stream_1/stream = ExtResource("16_hhs5c")
+stream_2/stream = ExtResource("17_0n71f")
+stream_3/stream = ExtResource("18_gilxf")
+stream_4/stream = ExtResource("19_mxs7g")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_6bht5"]
+streams_count = 4
+stream_0/stream = ExtResource("20_73dh6")
+stream_1/stream = ExtResource("21_w63lj")
+stream_2/stream = ExtResource("22_dvoan")
+stream_3/stream = ExtResource("23_781lt")
 
 [node name="Sound_Manager" type="Node"]
 script = ExtResource("1_8lswa")
@@ -51,3 +87,19 @@ stream = SubResource("AudioStreamRandomizer_pihfp")
 volume_db = -0.937
 pitch_scale = 2.0
 bus = &"SFX"
+
+[node name="projectile_absorbed" type="AudioStreamPlayer" parent="Projectiles"]
+stream = SubResource("AudioStreamRandomizer_1m67x")
+
+[node name="enemy_gun_fire" type="AudioStreamPlayer" parent="Projectiles"]
+stream = SubResource("AudioStreamRandomizer_1phci")
+
+[node name="player_gun_fire" type="AudioStreamPlayer" parent="Projectiles"]
+stream = SubResource("AudioStreamRandomizer_6bht5")
+
+[node name="Player" type="Node" parent="."]
+
+[node name="absorb_on" type="AudioStreamPlayer" parent="Player"]
+stream = ExtResource("24_2b8i4")
+
+[node name="Enemies" type="Node" parent="."]

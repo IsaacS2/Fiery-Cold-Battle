@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ddo2dn017xift"
+path="res://.godot/imported/enemy_jumps-002.ogg-d0851ed3ee49ae54ef534e0b163ee9fb.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets, Audio/SFX/DGX/enemy_jumps/enemy_jumps-002.ogg"
+dest_files=["res://.godot/imported/enemy_jumps-002.ogg-d0851ed3ee49ae54ef534e0b163ee9fb.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
