@@ -54,7 +54,7 @@ func play_player_hurt():
 	$Player/player_hurt.play()
 
 func play_absorb_on():
-	$Player/absorb_on.play
+	$Player/absorb_on.play()
 	
 #endregion
 
