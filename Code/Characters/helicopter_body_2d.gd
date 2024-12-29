@@ -16,7 +16,7 @@ func _physics_process(delta: float) -> void:
 	
 	if patrol_path and path_col and extents:
 		#if position.x < patrol_path.global_position.x - extents.x or position.x > patrol_path.global_position.x + extents.x:
-		if position.x < patrol_path.global_position.x - (extents.x * 2):
+		if position.x < patrol_path.global_position.x - (extents.x):
 			direction_value = 1
 		elif position.x > patrol_path.global_position.x + extents.x:
 			direction_value = -1
