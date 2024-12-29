@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://wmslo5c5r8q8"
+path="res://.godot/imported/Absorption_Loop.ogg-7d06cc4f6d835232aee20a7946a78cd9.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets, Audio/SFX/Player/Absorption_Loop/Absorption_Loop.ogg"
+dest_files=["res://.godot/imported/Absorption_Loop.ogg-7d06cc4f6d835232aee20a7946a78cd9.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

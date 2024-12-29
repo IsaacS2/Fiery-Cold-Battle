@@ -1,5 +1,9 @@
 extends Node
 
+
+func play_music():
+	$music.play()
+	
 #region Test Tones
 
 func play_test_loop():
@@ -14,9 +18,6 @@ func play_test_saw():
 func play_test_square():
 	$test_tones/test_square.play()
 #endregion
-
-func play_music():
-	$music.play()
 
 #region Projectiles
 
@@ -33,7 +34,7 @@ func play_projectile_absorbed():
 	$Projectiles/projectile_absorbed.play()
 #endregion
 
-#region elemental attacks
+#region Elemental Attacks
 
 func play_fire_attack():
 	$Attacks/fire_attack.play()
@@ -42,9 +43,35 @@ func play_ice_attack():
 	$Attacks/ice_attack.play()
 #endregion
 
+#region Player
+func play_player_footstep():
+	$Player/player_fs.play()
+
+func play_player_jump():
+	$Player/player_jump.play()
+
+func play_player_hurt():
+	$Player/player_hurt.play()
+
 func play_absorb_on():
 	$Player/absorb_on.play
 	
+#endregion
+
+#region Enemies
+func play_penguin_honk():
+	$Enemies/penguin_honk.play()
+
+func play_jerboa_squeal():
+	$Enemies/jerboa_squeal.play()
+
+func play_enemy_footstep():
+	$Enemies/enemy_fs.play()
+
+func play_enemy_jump():
+	$Enemies/enemy_jump.play()
+#endregion
+
 func _ready() -> void:
 	play_music()
  
