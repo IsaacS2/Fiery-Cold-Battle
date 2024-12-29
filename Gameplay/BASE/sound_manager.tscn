@@ -224,6 +224,8 @@ bus = &"SFX"
 
 [node name="enemy_gun_fire" type="AudioStreamPlayer" parent="Projectiles"]
 stream = SubResource("AudioStreamRandomizer_1phci")
+volume_db = -8.914
+pitch_scale = 2.05
 bus = &"SFX"
 
 [node name="player_gun_fire" type="AudioStreamPlayer" parent="Projectiles"]
