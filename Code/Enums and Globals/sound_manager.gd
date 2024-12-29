@@ -54,7 +54,7 @@ func play_player_hurt():
 	$Player/player_hurt.play()
 
 func play_absorb_on():
-	$Player/absorb_on.play
+	$Player/absorb_on.play()
 	
 #endregion
 
@@ -70,6 +70,9 @@ func play_enemy_footstep():
 
 func play_enemy_jump():
 	$Enemies/enemy_jump.play()
+
+func play_enemy_death():
+	pass
 #endregion
 
 func _ready() -> void:

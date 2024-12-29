@@ -73,7 +73,7 @@
 [ext_resource type="AudioStream" uid="uid://cf60imdaecbxy" path="res://Assets, Audio/SFX/Enemies/enemy_jumps/enemy_jumps-003.ogg" id="61_sey67"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_pihfp"]
-random_pitch = 1.7
+random_pitch = 1.1
 random_volume_offset_db = 1.5
 streams_count = 4
 stream_0/stream = ExtResource("7_xtn6t")
@@ -190,6 +190,7 @@ script = ExtResource("1_8lswa")
 
 [node name="music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_j6j7t")
+bus = &"MUS"
 
 [node name="test_tones" type="Node" parent="."]
 
@@ -213,46 +214,57 @@ bus = &"SFX"
 
 [node name="projectile_bounce" type="AudioStreamPlayer" parent="Projectiles"]
 stream = SubResource("AudioStreamRandomizer_pihfp")
-volume_db = -0.937
-pitch_scale = 2.0
+volume_db = -6.559
+pitch_scale = 2.01
 bus = &"SFX"
 
 [node name="projectile_absorbed" type="AudioStreamPlayer" parent="Projectiles"]
 stream = SubResource("AudioStreamRandomizer_1m67x")
+bus = &"SFX"
 
 [node name="enemy_gun_fire" type="AudioStreamPlayer" parent="Projectiles"]
 stream = SubResource("AudioStreamRandomizer_1phci")
+bus = &"SFX"
 
 [node name="player_gun_fire" type="AudioStreamPlayer" parent="Projectiles"]
 stream = SubResource("AudioStreamRandomizer_6bht5")
+bus = &"SFX"
 
 [node name="Player" type="Node" parent="."]
 
 [node name="absorb_on" type="AudioStreamPlayer" parent="Player"]
 stream = ExtResource("24_2b8i4")
+bus = &"SFX"
 
 [node name="player_fs" type="AudioStreamPlayer" parent="Player"]
 stream = SubResource("AudioStreamRandomizer_g1guh")
+bus = &"SFX"
 
 [node name="player_hurt" type="AudioStreamPlayer" parent="Player"]
 stream = SubResource("AudioStreamRandomizer_bnagt")
+bus = &"DGX"
 
 [node name="player_jump" type="AudioStreamPlayer" parent="Player"]
 stream = SubResource("AudioStreamRandomizer_4b2sc")
+bus = &"SFX"
 
 [node name="Enemies" type="Node" parent="."]
 
 [node name="penguin_honk" type="AudioStreamPlayer" parent="Enemies"]
 stream = SubResource("AudioStreamRandomizer_kaoph")
+bus = &"DGX"
 
 [node name="jerboa_squeal" type="AudioStreamPlayer" parent="Enemies"]
 stream = SubResource("AudioStreamRandomizer_nf551")
+bus = &"DGX"
 
 [node name="enemy_fs" type="AudioStreamPlayer" parent="Enemies"]
 stream = SubResource("AudioStreamRandomizer_jlbgc")
+bus = &"SFX"
 
 [node name="enemy_jump" type="AudioStreamPlayer" parent="Enemies"]
 stream = SubResource("AudioStreamRandomizer_c224q")
+bus = &"SFX"
 
 [node name="Attacks" type="Node" parent="."]
 

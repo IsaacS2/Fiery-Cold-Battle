@@ -21,6 +21,7 @@ func attempt_capture_projectile(projectile: Projectile2D) -> void:
 func _capture_projectile(projectile: Projectile2D) -> void:
 	var index: int = captured_projectiles.size()
 	projectile.capture()
+	SoundManager.play_projectile_absorbed()
 	captured_projectiles.append(projectile)
 	if projectile.get_parent():
 		projectile.get_parent().remove_child(projectile)
@@ -39,4 +40,5 @@ func _fire_projectile(projectile: Projectile2D) -> void:
 	remove_child(projectile)
 	pool.add_child(projectile)
 	projectile.global_position = pos
+	SoundManager.play_player_gun_fire()
 	projectile.fire_from_player(global_position)

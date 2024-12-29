@@ -26,6 +26,7 @@ func _handle_player_death() -> void:
 	lives_left -= 1
 	if lives_left > 0:
 		_respawn_player()
+		SoundManager.play_player_hurt()
 	else:
 		_run_game_over()
 
