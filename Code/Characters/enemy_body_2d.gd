@@ -41,4 +41,5 @@ func on_hit() -> void:
 		_on_die()
 
 func _on_die() -> void:
+	AutoloadScoreTracker.accept_enemy_die(self)
 	queue_free()

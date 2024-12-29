@@ -18,6 +18,5 @@ func _ready() -> void:
 	print(areas)
 
 func _on_body_entered(body: Node2D) -> void:
-	print ("Body entered patrol path")
 	if body is EnemyBody2D:
 		body.accept_patrol_path(self, my_col)
