@@ -5,12 +5,14 @@ signal input_start_direction(direction: Common.Direction)
 signal input_cancel_direction(direction: Common.Direction)
 signal input_start_grab()
 signal input_start_fire()
+signal input_start_zone_trigger()
 
 func _process(delta: float) -> void:
 	_listen_for_direction_start()
 	_listen_for_direction_cancel()
 	_listen_for_grab_start()
 	_listen_for_fire_start()
+	_listen_for_zone_trigger_start()
 
 func _listen_for_direction_start() -> void:
 	if Input.is_action_just_pressed("ui_up"):
@@ -40,10 +42,12 @@ func _process_direction_input_cancel(direction: Common.Direction):
 
 func _listen_for_grab_start() -> void:
 	if Input.is_action_just_pressed("Grab"):
-		print("Input Handler hears Grab")
 		input_start_grab.emit()
 
 func _listen_for_fire_start() -> void:
 	if Input.is_action_just_pressed("Fire"):
-		print("Fire input")
 		input_start_fire.emit()
+
+func _listen_for_zone_trigger_start() -> void:
+	if Input.is_action_just_pressed("zone_trigger"):
+		input_start_zone_trigger.emit()

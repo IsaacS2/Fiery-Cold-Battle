@@ -1,0 +1,2 @@
+extends ElementArea2D
+class_name FireArea2D

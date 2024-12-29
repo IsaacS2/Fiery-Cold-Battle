@@ -1,0 +1,78 @@
+[gd_scene load_steps=12 format=3 uid="uid://o6mf3wcqta3l"]
+
+[ext_resource type="Script" path="res://Code/Elemental Zones/fire_area_2d.gd" id="1_1gc7l"]
+[ext_resource type="Texture2D" uid="uid://duyfw05qkt431" path="res://Assets, Visual/Zones/Free Smoke Fx  Pixel 04.png" id="2_5xn6r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5cyh3"]
+size = Vector2(80, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0j65"]
+atlas = ExtResource("2_5xn6r")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkbja"]
+atlas = ExtResource("2_5xn6r")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bo5j7"]
+atlas = ExtResource("2_5xn6r")
+region = Rect2(128, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7bye7"]
+atlas = ExtResource("2_5xn6r")
+region = Rect2(192, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yco28"]
+atlas = ExtResource("2_5xn6r")
+region = Rect2(256, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gfyfp"]
+atlas = ExtResource("2_5xn6r")
+region = Rect2(320, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1g61k"]
+atlas = ExtResource("2_5xn6r")
+region = Rect2(384, 128, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bcst4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0j65")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkbja")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bo5j7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7bye7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yco28")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gfyfp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1g61k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="FireArea2D" type="Area2D" groups=["Element Areas"]]
+position = Vector2(96, 168)
+collision_mask = 2
+script = ExtResource("1_1gc7l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_5cyh3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+sprite_frames = SubResource("SpriteFrames_bcst4")
+autoplay = "default"
+frame_progress = 0.269169

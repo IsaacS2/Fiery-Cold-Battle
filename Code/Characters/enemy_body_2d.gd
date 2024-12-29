@@ -2,6 +2,7 @@ extends CharacterBody2D
 class_name EnemyBody2D
 
 var hit_points: int = 1
+var element_vulnerable: Common.Elements
 
 var patrol_path: Area2D
 var path_col: CollisionShape2D
@@ -39,6 +40,10 @@ func on_hit() -> void:
 	hit_points -= 1
 	if hit_points <= 0:
 		_on_die()
+
+func on_hit_elemental(element: Common.Elements) -> void:
+	if element_vulnerable == element:
+		on_hit()
 
 func _on_die() -> void:
 	AutoloadScoreTracker.accept_enemy_die(self)

@@ -8,6 +8,11 @@ enum Direction{
 	LEFT
 }
 
+enum Elements{
+	FIRE,
+	ICE
+}
+
 func direction_to_value_horizontal(direction: Direction) -> int:
 	if direction == Direction.RIGHT:
 		return 1
