@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bishosoc6pern"
+path="res://.godot/imported/Projectile_Absorbed-003.ogg-af21dcd5186804d3d3fd3b3a73d1415f.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets, Audio/SFX/Projectile_Absorbed/Projectile_Absorbed-003.ogg"
+dest_files=["res://.godot/imported/Projectile_Absorbed-003.ogg-af21dcd5186804d3d3fd3b3a73d1415f.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
