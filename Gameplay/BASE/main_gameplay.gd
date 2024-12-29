@@ -31,6 +31,7 @@ func _handle_player_death() -> void:
 		_run_game_over()
 
 func _respawn_player() -> void:
+	player.on_spawn()
 	player.global_position = player_spawn_point.global_position
 
 func _run_game_over() -> void:

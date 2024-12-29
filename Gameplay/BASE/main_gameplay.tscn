@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://dexxba02ycjr0"]
+[gd_scene load_steps=32 format=4 uid="uid://dexxba02ycjr0"]
 
 [ext_resource type="Script" path="res://Code/UI/main_menu.gd" id="1_c6hhf"]
 [ext_resource type="Script" path="res://Gameplay/BASE/main_gameplay.gd" id="1_f785w"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Code/UI/score_field_ui.gd" id="3_fe05t"]
 [ext_resource type="Texture2D" uid="uid://bol8mxnv2gofb" path="res://Assets, Visual/Characters/knight.png" id="3_hx8gu"]
 [ext_resource type="Script" path="res://Code/Characters/player_character.gd" id="3_u8hg1"]
+[ext_resource type="Script" path="res://Code/UI/zone_trigger_progress_bar_ui.gd" id="4_1mkst"]
 [ext_resource type="Script" path="res://Code/Tile Maps/ground_tiles.gd" id="4_8vkrt"]
 [ext_resource type="Script" path="res://Code/Input/input_router.gd" id="5_x3roq"]
 [ext_resource type="Script" path="res://Code/Projectiles/grabber_2d.gd" id="7_sueqx"]
@@ -19,6 +20,8 @@
 [ext_resource type="PackedScene" uid="uid://c8w8ra2kccgit" path="res://Gameplay/BASE/ELEMENT ZONES/ice_area_2d.tscn" id="18_fjuj4"]
 [ext_resource type="PackedScene" uid="uid://o6mf3wcqta3l" path="res://Gameplay/BASE/ELEMENT ZONES/fire_area_2d.tscn" id="19_7fbmi"]
 [ext_resource type="PackedScene" uid="uid://bf46gjrewk27s" path="res://Gameplay/BASE/ENEMIES/jerboa_body_2d.tscn" id="19_5342x"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_qcmyt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m6qeu"]
 texture = ExtResource("3_2pget")
@@ -295,6 +298,49 @@ text = "9999"
 fit_content = true
 script = ExtResource("3_fe05t")
 
+[node name="UI Gameplay Footer" type="Control" parent="."]
+visibility_layer = 524288
+custom_minimum_size = Vector2(256, 16)
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = 240.0
+offset_right = 256.0
+offset_bottom = 256.0
+grow_vertical = 0
+size_flags_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="UI Gameplay Footer"]
+visibility_layer = 524289
+custom_minimum_size = Vector2(64, 16)
+layout_mode = 0
+offset_left = 48.0
+offset_top = -8.0
+offset_right = 112.0
+offset_bottom = 19.0
+
+[node name="ZoneTriggerProgressBarUI" type="ProgressBar" parent="UI Gameplay Footer"]
+visibility_layer = 524288
+z_index = 100
+layout_mode = 2
+offset_left = 48.0
+offset_top = -8.0
+offset_right = 112.0
+offset_bottom = 10.0
+theme_override_font_sizes/font_size = 10
+script = ExtResource("4_1mkst")
+
+[node name="TextureRect" type="TextureRect" parent="UI Gameplay Footer"]
+self_modulate = Color(0.968627, 0, 0, 0.529412)
+z_index = 100
+layout_mode = 2
+offset_left = 8.0
+offset_top = -24.0
+offset_right = 40.0
+offset_bottom = 8.0
+texture = SubResource("CanvasTexture_qcmyt")
+
 [node name="Player Spawn Point" type="Node2D" parent="." groups=["Player Spawn"]]
 position = Vector2(256, 0)
 
@@ -401,6 +447,7 @@ position = Vector2(232, 216)
 position = Vector2(328, 216)
 
 [connection signal="on_root_ready" from="." to="Main Menu" method="_on_main_gameplay_on_root_ready"]
+[connection signal="on_root_ready" from="." to="UI Gameplay Footer/ZoneTriggerProgressBarUI" method="_on_main_gameplay_on_root_ready"]
 [connection signal="focus_entered" from="Main Menu/MarginContainer/VBoxContainer/Play Button" to="Main Menu" method="_on_play_button_focus_entered"]
 [connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/Play Button" to="Main Menu" method="_on_play_button_pressed"]
 [connection signal="focus_entered" from="Main Menu/MarginContainer/VBoxContainer/Options Button" to="Main Menu" method="_on_options_button_focus_entered"]
