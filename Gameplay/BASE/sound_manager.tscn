@@ -1,10 +1,12 @@
-[gd_scene load_steps=101 format=3 uid="uid://drv017acmym5s"]
+[gd_scene load_steps=104 format=3 uid="uid://drv017acmym5s"]
 
 [ext_resource type="Script" path="res://Code/Enums and Globals/sound_manager.gd" id="1_8lswa"]
+[ext_resource type="AudioStream" uid="uid://dsarn5ypwrode" path="res://Assets, Audio/MUS/Game_Start_Loop.mp3" id="2_jgadb"]
 [ext_resource type="AudioStream" uid="uid://bqp4sl7ehhg72" path="res://Assets, Audio/SFX/Test Tones/Test_Loop.ogg" id="2_m2dfm"]
 [ext_resource type="AudioStream" uid="uid://bccwb5kg5cf4u" path="res://Assets, Audio/MUS/Theme_Fire.mp3" id="2_oojwf"]
 [ext_resource type="AudioStream" uid="uid://hx5bw6hst75e" path="res://Assets, Audio/SFX/Test Tones/Test_Sine.ogg" id="3_c0qss"]
 [ext_resource type="AudioStream" uid="uid://ob534mkluix6" path="res://Assets, Audio/MUS/Theme_Ice.mp3" id="3_cr38p"]
+[ext_resource type="AudioStream" uid="uid://crr3d1byhciek" path="res://Assets, Audio/MUS/Ice_Looping.mp3" id="3_f3vgb"]
 [ext_resource type="AudioStream" uid="uid://c3rcpjotgx068" path="res://Assets, Audio/SFX/Test Tones/Test_Saw.ogg" id="4_v6q2e"]
 [ext_resource type="AudioStream" uid="uid://b43gg15q14x3s" path="res://Assets, Audio/SFX/Test Tones/Test_Square.ogg" id="5_hx8kw"]
 [ext_resource type="AudioStream" uid="uid://bv5hoykl37d42" path="res://Assets, Audio/SFX/Projectiles/Projectile_Bounce/SFX_Projectile_Bounce-001.ogg" id="7_1qinr"]
@@ -84,22 +86,42 @@
 [ext_resource type="AudioStream" uid="uid://bvg6ahplj27x7" path="res://Assets, Audio/BGX/Fire_State/BGX_Fire_State_Loop.ogg" id="81_mh7od"]
 [ext_resource type="AudioStream" uid="uid://b7q8emb36jvif" path="res://Assets, Audio/BGX/Ice_State/BGX_Ice_State_Loop.ogg" id="82_4recs"]
 
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_u6icl"]
+stream_count = 2
+stream_0 = ExtResource("2_jgadb")
+stream_1 = ExtResource("3_f3vgb")
+
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_2i45h"]
-clip_count = 2
-clip_0/name = &"fire"
-clip_0/stream = ExtResource("2_oojwf")
+clip_count = 3
+clip_0/name = &"Game Start Loop"
+clip_0/stream = ExtResource("2_jgadb")
 clip_0/auto_advance = 0
-clip_1/name = &"ice"
-clip_1/stream = ExtResource("3_cr38p")
+clip_1/name = &"fire"
+clip_1/stream = ExtResource("2_oojwf")
 clip_1/auto_advance = 0
+clip_2/name = &"ice"
+clip_2/stream = ExtResource("3_cr38p")
+clip_2/auto_advance = 0
 _transitions = {
 Vector2i(0, 1): {
+"fade_beats": 1,
+"fade_mode": 4,
+"from_time": 0,
+"to_time": 1
+},
+Vector2i(0, 2): {
+"fade_beats": 1,
+"fade_mode": 4,
+"from_time": 0,
+"to_time": 1
+},
+Vector2i(1, 2): {
 "fade_beats": 4,
 "fade_mode": 3,
 "from_time": 0,
 "to_time": 0
 },
-Vector2i(1, 0): {
+Vector2i(2, 1): {
 "fade_beats": 4,
 "fade_mode": 3,
 "from_time": 0,
@@ -278,13 +300,21 @@ Vector2i(1, 0): {
 [node name="Sound_Manager" type="Node"]
 script = ExtResource("1_8lswa")
 
+[node name="music_playlist" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamPlaylist_u6icl")
+autoplay = true
+bus = &"MUS"
+
+[node name="level_start_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_jgadb")
+
 [node name="adaptive_music" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamInteractive_2i45h")
+autoplay = true
 bus = &"MUS"
 
 [node name="music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_cr38p")
-autoplay = true
 bus = &"MUS"
 
 [node name="test_tones" type="Node" parent="."]

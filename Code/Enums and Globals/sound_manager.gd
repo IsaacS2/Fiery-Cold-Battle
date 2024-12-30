@@ -5,8 +5,8 @@ extends Node
 
 
 func play_music():
-	$music.play()
-	#adaptive_music.play()
+	#$music.play()
+	adaptive_music.play()
 #region Test Tones
 
 func play_test_loop():
