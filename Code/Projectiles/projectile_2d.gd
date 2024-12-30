@@ -29,7 +29,7 @@ func _physics_process(delta: float) -> void:
 		_on_collision(collision)
 		
 func _on_collision(collision: KinematicCollision2D) -> void:
-	#print(collision)
+	print(collision)
 	var collider = collision.get_collider()
 	var player = collider as PlayerCharacter2D
 	if player:

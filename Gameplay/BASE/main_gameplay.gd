@@ -23,6 +23,7 @@ func _init_game() -> void:
 	player = get_tree().get_first_node_in_group(Groups.player_character)
 	player_spawn_point = get_tree().get_first_node_in_group(Groups.player_spawn)
 	enemy_count = get_tree().get_nodes_in_group(Groups.enemy_character).size()
+	print(str(enemy_count))
 	player.global_position = player_spawn_point.global_position
 
 func _handle_player_death() -> void:
@@ -35,6 +36,7 @@ func _handle_player_death() -> void:
 func _handle_enemy_death() -> void:
 	enemy_count -= 1
 	if enemy_count < 1:
+		print("enemy count low!")
 		_run_next_round()
 
 func _respawn_player() -> void:
@@ -45,4 +47,5 @@ func _run_game_over() -> void:
 	print("Game Over")
 
 func _run_next_round() -> void:
-	pass
+	AutoloadRoundTracker._increment_round()
+	AutoloadRoundTracker._start_round()

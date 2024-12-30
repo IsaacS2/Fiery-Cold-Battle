@@ -53,7 +53,7 @@ size = Vector2(10, 11)
 [sub_resource type="CircleShape2D" id="CircleShape2D_lxm4x"]
 radius = 7.0
 
-[node name="JerboaBody2D" type="CharacterBody2D"]
+[node name="JerboaBody2D" type="CharacterBody2D" groups=["Enemy Character"]]
 position = Vector2(73, 163)
 collision_layer = 2
 collision_mask = 3

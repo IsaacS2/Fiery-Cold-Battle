@@ -1,25 +1,26 @@
-[gd_scene load_steps=19 format=3 uid="uid://dcn8iua2h5nen"]
+[gd_scene load_steps=20 format=3 uid="uid://2sxrqh2i537i"]
 
-[ext_resource type="Script" path="res://Gameplay/BASE/main_gameplay.gd" id="1_gi6fu"]
-[ext_resource type="Script" path="res://Code/UI/main_menu.gd" id="2_sfbt8"]
-[ext_resource type="Script" path="res://Code/UI/score_field_ui.gd" id="3_wmwc3"]
-[ext_resource type="PackedScene" uid="uid://ccupd4uomkpaf" path="res://Gameplay/BASE/main_ground_tiles.tscn" id="4_8uxrt"]
-[ext_resource type="Script" path="res://Code/Characters/player_character.gd" id="6_7mmgh"]
-[ext_resource type="Texture2D" uid="uid://bol8mxnv2gofb" path="res://Assets, Visual/Characters/knight.png" id="7_yrqep"]
-[ext_resource type="Script" path="res://Code/Projectiles/grabber_2d.gd" id="8_2vlte"]
-[ext_resource type="Script" path="res://Code/Projectiles/projectile_ring.gd" id="9_truf7"]
-[ext_resource type="Script" path="res://Code/Projectiles/projectile_ring_point.gd" id="10_cdiw3"]
-[ext_resource type="Script" path="res://Code/Input/input_router.gd" id="11_mgyay"]
-[ext_resource type="Script" path="res://Code/Projectiles/projectile_pool.gd" id="12_avueq"]
-[ext_resource type="PackedScene" uid="uid://btl5ari0641f5" path="res://Gameplay/BASE/ENEMIES/enemy_patrol_path_2d.tscn" id="12_q6yfj"]
-[ext_resource type="PackedScene" uid="uid://cwf7p02m0pwcn" path="res://Gameplay/BASE/ENEMIES/penguin_body_2d.tscn" id="13_uyi5u"]
+[ext_resource type="Script" path="res://Gameplay/BASE/main_gameplay.gd" id="1_y0pm1"]
+[ext_resource type="Script" path="res://Code/UI/main_menu.gd" id="2_4f1sq"]
+[ext_resource type="Script" path="res://Code/UI/score_field_ui.gd" id="3_2k05r"]
+[ext_resource type="PackedScene" uid="uid://ccupd4uomkpaf" path="res://Gameplay/BASE/main_ground_tiles.tscn" id="4_mhb1c"]
+[ext_resource type="Script" path="res://Code/Characters/player_character.gd" id="5_p6fen"]
+[ext_resource type="Texture2D" uid="uid://bol8mxnv2gofb" path="res://Assets, Visual/Characters/knight.png" id="6_qv82x"]
+[ext_resource type="Script" path="res://Code/Projectiles/grabber_2d.gd" id="7_3wx5i"]
+[ext_resource type="Script" path="res://Code/Projectiles/projectile_ring.gd" id="8_v5tuq"]
+[ext_resource type="Script" path="res://Code/Projectiles/projectile_ring_point.gd" id="9_4sy33"]
+[ext_resource type="Script" path="res://Code/Input/input_router.gd" id="10_gluw5"]
+[ext_resource type="Script" path="res://Code/Projectiles/projectile_pool.gd" id="11_re5us"]
+[ext_resource type="PackedScene" uid="uid://btl5ari0641f5" path="res://Gameplay/BASE/ENEMIES/enemy_patrol_path_2d.tscn" id="12_trp7m"]
+[ext_resource type="PackedScene" uid="uid://cwf7p02m0pwcn" path="res://Gameplay/BASE/ENEMIES/penguin_body_2d.tscn" id="13_37m3d"]
+[ext_resource type="PackedScene" uid="uid://bf46gjrewk27s" path="res://Gameplay/BASE/ENEMIES/jerboa_body_2d.tscn" id="14_g7cpm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_momrt"]
-atlas = ExtResource("7_yrqep")
+atlas = ExtResource("6_qv82x")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dnfhb"]
-atlas = ExtResource("7_yrqep")
+atlas = ExtResource("6_qv82x")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ntm0g"]
@@ -43,7 +44,7 @@ radius = 4.0
 size = Vector2(16, 26)
 
 [node name="Main Gameplay" type="Node2D"]
-script = ExtResource("1_gi6fu")
+script = ExtResource("1_y0pm1")
 
 [node name="Main Menu" type="Control" parent="."]
 visible = false
@@ -51,7 +52,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("2_sfbt8")
+script = ExtResource("2_4f1sq")
 
 [node name="MarginContainer" type="MarginContainer" parent="Main Menu"]
 layout_mode = 0
@@ -135,19 +136,19 @@ theme_override_constants/outline_size = 4
 theme_override_font_sizes/normal_font_size = 12
 text = "9999"
 fit_content = true
-script = ExtResource("3_wmwc3")
+script = ExtResource("3_2k05r")
 
 [node name="Player Spawn Point" type="Node2D" parent="." groups=["Player Spawn"]]
 position = Vector2(256, 0)
 
 [node name="TileMap Controller" type="Node" parent="."]
 
-[node name="Ground Tiles" parent="TileMap Controller" instance=ExtResource("4_8uxrt")]
+[node name="Ground Tiles" parent="TileMap Controller" instance=ExtResource("4_mhb1c")]
 
 [node name="Player Character" type="CharacterBody2D" parent="." groups=["Player Character"]]
 position = Vector2(180, 106)
 floor_max_angle = 1.22173
-script = ExtResource("6_7mmgh")
+script = ExtResource("5_p6fen")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player Character"]
 sprite_frames = SubResource("SpriteFrames_ntm0g")
@@ -158,58 +159,61 @@ position = Vector2(0, 8)
 shape = SubResource("CircleShape2D_u473q")
 
 [node name="Grabber2D" type="Area2D" parent="Player Character"]
-script = ExtResource("8_2vlte")
+script = ExtResource("7_3wx5i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player Character/Grabber2D"]
 position = Vector2(16, 3)
 shape = SubResource("RectangleShape2D_f4v4a")
 
 [node name="Projectile Ring" type="Node2D" parent="Player Character/Grabber2D"]
-script = ExtResource("9_truf7")
+script = ExtResource("8_v5tuq")
 
 [node name="ProjectileRingPoint" type="Node2D" parent="Player Character/Grabber2D/Projectile Ring"]
 position = Vector2(24, 0)
-script = ExtResource("10_cdiw3")
+script = ExtResource("9_4sy33")
 
 [node name="ProjectileRingPoint8" type="Node2D" parent="Player Character/Grabber2D/Projectile Ring"]
 position = Vector2(16, -12)
-script = ExtResource("10_cdiw3")
+script = ExtResource("9_4sy33")
 
 [node name="ProjectileRingPoint2" type="Node2D" parent="Player Character/Grabber2D/Projectile Ring"]
 position = Vector2(16, 12)
-script = ExtResource("10_cdiw3")
+script = ExtResource("9_4sy33")
 
 [node name="ProjectileRingPoint7" type="Node2D" parent="Player Character/Grabber2D/Projectile Ring"]
 position = Vector2(0, -16)
-script = ExtResource("10_cdiw3")
+script = ExtResource("9_4sy33")
 
 [node name="ProjectileRingPoint3" type="Node2D" parent="Player Character/Grabber2D/Projectile Ring"]
 position = Vector2(0, 16)
-script = ExtResource("10_cdiw3")
+script = ExtResource("9_4sy33")
 
 [node name="ProjectileRingPoint6" type="Node2D" parent="Player Character/Grabber2D/Projectile Ring"]
 position = Vector2(-16, -12)
-script = ExtResource("10_cdiw3")
+script = ExtResource("9_4sy33")
 
 [node name="ProjectileRingPoint4" type="Node2D" parent="Player Character/Grabber2D/Projectile Ring"]
 position = Vector2(-16, 12)
-script = ExtResource("10_cdiw3")
+script = ExtResource("9_4sy33")
 
 [node name="ProjectileRingPoint5" type="Node2D" parent="Player Character/Grabber2D/Projectile Ring"]
 position = Vector2(-24, 0)
-script = ExtResource("10_cdiw3")
+script = ExtResource("9_4sy33")
 
 [node name="Input Router" type="Node" parent="."]
-script = ExtResource("11_mgyay")
+script = ExtResource("10_gluw5")
 
 [node name="Projectile Pool" type="Node" parent="." groups=["Projectile Pool"]]
-script = ExtResource("12_avueq")
+script = ExtResource("11_re5us")
 
-[node name="EnemyPatrolPath2D2" parent="." instance=ExtResource("12_q6yfj")]
+[node name="EnemyPatrolPath2D2" parent="." instance=ExtResource("12_trp7m")]
 position = Vector2(416, 171)
 
-[node name="PenguinBody2D" parent="." instance=ExtResource("13_uyi5u")]
+[node name="PenguinBody2D" parent="." instance=ExtResource("13_37m3d")]
 position = Vector2(399, 163)
+
+[node name="JerboaBody2D" parent="." instance=ExtResource("14_g7cpm")]
+position = Vector2(35, 209)
 
 [connection signal="on_root_ready" from="." to="Main Menu" method="_on_main_gameplay_on_root_ready"]
 [connection signal="focus_entered" from="Main Menu/MarginContainer/VBoxContainer/Play Button" to="Main Menu" method="_on_play_button_focus_entered"]
@@ -225,3 +229,4 @@ position = Vector2(399, 163)
 [connection signal="pass_input_grab_started" from="Input Router" to="Player Character" method="accept_grab_input_start"]
 [connection signal="pass_input_zone_trigger_started" from="Input Router" to="Player Character" method="accept_zone_trigger_input_start"]
 [connection signal="tree_exiting" from="PenguinBody2D" to="." method="accept_enemy_death"]
+[connection signal="tree_exited" from="JerboaBody2D" to="." method="accept_enemy_death"]
