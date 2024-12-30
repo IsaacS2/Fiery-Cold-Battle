@@ -31,8 +31,8 @@ func _physics_process(delta: float) -> void:
 	
 	#footsteps
 	if animator.animation == 'waddling' and velocity.x != 0 and is_on_floor():
-		if (animator.frame == 3) and previous_frame != animator.frame:
-				SoundManager.play_enemy_footstep()
+		if (animator.frame == 0) and previous_frame != animator.frame:
+				SoundManager.play_penguin_footstep()
 				print(animator.frame, "waddled") 
 	previous_frame = animator.frame
 	

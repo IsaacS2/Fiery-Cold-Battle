@@ -108,6 +108,9 @@ func play_helicopter_loop():
 	
 func stop_helicopter_loop():
 	$Enemies/helicopter_blades.stop()
+	
+func play_penguin_footstep():
+	$Enemies/penguin_fs.play()
 
 func play_enemy_death(death_cry):
 	if death_cry == 'jerboa' :

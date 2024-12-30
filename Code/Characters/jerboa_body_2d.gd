@@ -20,13 +20,14 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor() and velocity.y > 0 and fire_reset == true:
 		_fire_projectile()
 		fire_reset = false
-	
+		
 	_jump_logic(delta)
 	move_and_slide()
 
 func _jump_logic(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+	
 		
 	if is_on_floor() and jump_reset == false:
 		jump_countdown = JUMP_DELAY

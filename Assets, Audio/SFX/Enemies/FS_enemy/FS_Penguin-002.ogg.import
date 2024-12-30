@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dtighn7wubnc0"
+path="res://.godot/imported/FS_Penguin-002.ogg-8e1e8d3e819c63440e76bfc833b49c84.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets, Audio/SFX/Enemies/FS_enemy/FS_Penguin-002.ogg"
+dest_files=["res://.godot/imported/FS_Penguin-002.ogg-8e1e8d3e819c63440e76bfc833b49c84.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

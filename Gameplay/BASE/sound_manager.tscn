@@ -1,4 +1,4 @@
-[gd_scene load_steps=104 format=3 uid="uid://drv017acmym5s"]
+[gd_scene load_steps=111 format=3 uid="uid://drv017acmym5s"]
 
 [ext_resource type="Script" path="res://Code/Enums and Globals/sound_manager.gd" id="1_8lswa"]
 [ext_resource type="AudioStream" uid="uid://dsarn5ypwrode" path="res://Assets, Audio/MUS/Game_Start_Loop.mp3" id="2_jgadb"]
@@ -83,6 +83,12 @@
 [ext_resource type="AudioStream" uid="uid://b085iulntft1u" path="res://Assets, Audio/SFX/Enemies/helicopter_explosion/helicopter_explosion-003.ogg" id="68_vbx72"]
 [ext_resource type="AudioStream" uid="uid://b2iudoiu3yfmw" path="res://Assets, Audio/SFX/Enemies/helicopter_explosion/helicopter_explosion-004.ogg" id="69_qe4nd"]
 [ext_resource type="AudioStream" uid="uid://cpgipwl5o5rbe" path="res://Assets, Audio/SFX/Enemies/Helicopter_loop/Helicopter_loop.ogg" id="70_rhuoi"]
+[ext_resource type="AudioStream" uid="uid://ytumicdyb471" path="res://Assets, Audio/SFX/Enemies/FS_enemy/FS_Penguin-001.ogg" id="74_ajcmp"]
+[ext_resource type="AudioStream" uid="uid://dtighn7wubnc0" path="res://Assets, Audio/SFX/Enemies/FS_enemy/FS_Penguin-002.ogg" id="75_7en8i"]
+[ext_resource type="AudioStream" uid="uid://badt6v05m0vvh" path="res://Assets, Audio/SFX/Enemies/FS_enemy/FS_Penguin-003.ogg" id="76_ini6f"]
+[ext_resource type="AudioStream" uid="uid://bgjm3wxlweg07" path="res://Assets, Audio/SFX/Enemies/FS_enemy/FS_Penguin-004.ogg" id="77_01ax8"]
+[ext_resource type="AudioStream" uid="uid://b70whuaa83q5c" path="res://Assets, Audio/SFX/Enemies/FS_enemy/FS_Penguin-005.ogg" id="78_1hgqi"]
+[ext_resource type="AudioStream" uid="uid://cqiwigiiryb82" path="res://Assets, Audio/SFX/Enemies/FS_enemy/FS_Penguin-006.ogg" id="79_hfs6s"]
 [ext_resource type="AudioStream" uid="uid://bvg6ahplj27x7" path="res://Assets, Audio/BGX/Fire_State/BGX_Fire_State_Loop.ogg" id="81_mh7od"]
 [ext_resource type="AudioStream" uid="uid://b7q8emb36jvif" path="res://Assets, Audio/BGX/Ice_State/BGX_Ice_State_Loop.ogg" id="82_4recs"]
 
@@ -239,6 +245,17 @@ stream_0/stream = ExtResource("66_2le14")
 stream_1/stream = ExtResource("67_xxjfu")
 stream_2/stream = ExtResource("68_vbx72")
 stream_3/stream = ExtResource("69_qe4nd")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_kcpq8"]
+random_pitch = 1.2
+random_volume_offset_db = 1.0
+streams_count = 6
+stream_0/stream = ExtResource("74_ajcmp")
+stream_1/stream = ExtResource("75_7en8i")
+stream_2/stream = ExtResource("76_ini6f")
+stream_3/stream = ExtResource("77_01ax8")
+stream_4/stream = ExtResource("78_1hgqi")
+stream_5/stream = ExtResource("79_hfs6s")
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_o1lp8"]
 streams_count = 5
@@ -420,6 +437,11 @@ stream = ExtResource("70_rhuoi")
 volume_db = -24.0
 pitch_scale = 3.0
 bus = &"SFX"
+
+[node name="penguin_fs" type="AudioStreamPlayer" parent="Enemies"]
+stream = SubResource("AudioStreamRandomizer_kcpq8")
+volume_db = -12.0
+pitch_scale = 0.82
 
 [node name="Elemental" type="Node" parent="."]
 
