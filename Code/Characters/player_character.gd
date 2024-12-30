@@ -97,6 +97,7 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+		previously_airborn = true
 	
 	_invulnerable_logic(delta)
 	_zone_trigger_countup_logic(delta)
@@ -115,9 +116,6 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	#handle footstep and jump sounds
-	
-	if !is_on_floor():
-		previously_airborn = true
 	
 	if (animator.animation == 'walking' or 'walking_magnet') and velocity.x != 0 and is_on_floor():
 		if (animator.frame == 3 or 5) and previous_frame != animator.frame:
