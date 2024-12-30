@@ -307,6 +307,7 @@ bus = &"MUS"
 
 [node name="level_start_music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_jgadb")
+bus = &"MUS"
 
 [node name="adaptive_music" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamInteractive_2i45h")
@@ -400,7 +401,7 @@ bus = &"DGX"
 
 [node name="enemy_fs" type="AudioStreamPlayer" parent="Enemies"]
 stream = SubResource("AudioStreamRandomizer_jlbgc")
-volume_db = -8.0
+volume_db = -14.0
 pitch_scale = 0.75
 bus = &"SFX"
 

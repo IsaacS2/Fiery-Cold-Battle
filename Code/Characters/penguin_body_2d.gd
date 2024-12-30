@@ -6,6 +6,9 @@ const SPEED: float = 50.0
 
 var direction_value: int = -1
 
+@onready var animator: AnimatedSprite2D = $AnimatedSprite2D
+var previous_frame : int
+
 func _physics_process(delta: float) -> void:
 	_check_facing()
 	
@@ -25,6 +28,13 @@ func _physics_process(delta: float) -> void:
 			direction_value = 1
 		elif position.x > patrol_path.global_position.x + extents.x:
 			direction_value = -1
+	
+	#footsteps
+	if animator.animation == 'waddling' and velocity.x != 0 and is_on_floor():
+		if (animator.frame == 3) and previous_frame != animator.frame:
+				SoundManager.play_enemy_footstep()
+				print(animator.frame, "waddled") 
+	previous_frame = animator.frame
 	
 	move_and_slide()
 
