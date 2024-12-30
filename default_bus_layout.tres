@@ -1,29 +1,18 @@
-[gd_resource type="AudioBusLayout" load_steps=3 format=3 uid="uid://depeluyt3t3vl"]
-
-[ext_resource type="AudioEffectReverb" uid="uid://b4ui2ep13t8fi" path="res://Assets, Audio/Resources/room_reverb.tres" id="1_afutw"]
-
-[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_wkw7q"]
-resource_name = "Reverb"
-room_size = 0.1
-damping = 0.22
-hipass = 0.5
-wet = 0.1
+[gd_resource type="AudioBusLayout" format=3 uid="uid://depeluyt3t3vl"]
 
 [resource]
 bus/1/name = &"MUS"
 bus/1/solo = false
 bus/1/mute = false
 bus/1/bypass_fx = false
-bus/1/volume_db = -11.4624
+bus/1/volume_db = -3.32444
 bus/1/send = &"Master"
 bus/2/name = &"SFX"
 bus/2/solo = false
 bus/2/mute = false
 bus/2/bypass_fx = false
-bus/2/volume_db = -3.11736
+bus/2/volume_db = 0.0
 bus/2/send = &"Master"
-bus/2/effect/0/effect = ExtResource("1_afutw")
-bus/2/effect/0/enabled = true
 bus/3/name = &"BGX"
 bus/3/solo = false
 bus/3/mute = false
@@ -34,7 +23,5 @@ bus/4/name = &"DGX"
 bus/4/solo = false
 bus/4/mute = false
 bus/4/bypass_fx = false
-bus/4/volume_db = -3.11736
+bus/4/volume_db = 0.0
 bus/4/send = &"Master"
-bus/4/effect/0/effect = SubResource("AudioEffectReverb_wkw7q")
-bus/4/effect/0/enabled = true

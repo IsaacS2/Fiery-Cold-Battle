@@ -3,8 +3,6 @@ class_name Grabber2D
 
 var ring: ProjectileRing
 
-var currently_grabbing:bool = false
-
 func _ready() -> void:
 	var children: Array = get_children()
 	for child in children:
@@ -12,19 +10,13 @@ func _ready() -> void:
 			ring = child
 			return
 
-func start_grabbing() -> void:
-	currently_grabbing = true
-
 func check_projectiles() -> void:
+	print("Checking projectiles")
 	var overlapping_bodies = get_overlapping_bodies()
 	for body in overlapping_bodies:
 		if body is Projectile2D:
+			print("Projectile checked")
 			ring.attempt_capture_projectile(body)
 
 func fire_projectiles() -> void:
-	currently_grabbing = false
 	ring.fire_projectiles()
-
-func _physics_process(delta: float) -> void:
-	if currently_grabbing:
-		check_projectiles()

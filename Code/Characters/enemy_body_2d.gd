@@ -1,8 +1,6 @@
 extends CharacterBody2D
 class_name EnemyBody2D
 
-@export var death_noise : String
-
 var hit_points: int = 1
 var element_vulnerable: Common.Elements
 
@@ -49,5 +47,4 @@ func on_hit_elemental(element: Common.Elements) -> void:
 
 func _on_die() -> void:
 	AutoloadScoreTracker.accept_enemy_die(self)
-	SoundManager.play_enemy_death(death_noise)
 	queue_free()
