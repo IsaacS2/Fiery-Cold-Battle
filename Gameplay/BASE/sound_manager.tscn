@@ -343,8 +343,7 @@ bus = &"SFX"
 [node name="player_fs" type="AudioStreamPlayer" parent="Player"]
 stream = SubResource("AudioStreamRandomizer_g1guh")
 volume_db = -21.0
-pitch_scale = 1.08
-max_polyphony = 2
+pitch_scale = 0.9
 bus = &"SFX"
 
 [node name="player_hurt" type="AudioStreamPlayer" parent="Player"]
@@ -377,6 +376,7 @@ bus = &"SFX"
 
 [node name="enemy_jump" type="AudioStreamPlayer" parent="Enemies"]
 stream = SubResource("AudioStreamRandomizer_c224q")
+volume_db = -9.0
 bus = &"SFX"
 
 [node name="helilcopter_explosion" type="AudioStreamPlayer" parent="Enemies"]
