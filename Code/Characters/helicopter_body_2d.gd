@@ -8,6 +8,8 @@ var direction_value: int = -1
 var chopper_playing: bool = false
 
 func _physics_process(delta: float) -> void:
+	_check_facing()
+	
 	fire_countdown -= delta
 	if fire_countdown < 0:
 		fire_countdown = fire_delay

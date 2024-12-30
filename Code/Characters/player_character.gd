@@ -35,7 +35,8 @@ var sprite_flicker_countdown: float = 0
 
 
 func _ready() -> void:
-	print("character ready")
+	AutoloadPlayerCharacterFinder.accept_player(self)
+	# print("character ready")
 	var children: Array = get_children()
 	for child in children:
 		if child is Grabber2D:
