@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://cf8dglma5aajw"]
+[gd_scene load_steps=80 format=3 uid="uid://cf8dglma5aajw"]
 
 [ext_resource type="Script" path="res://Gameplay/BASE/main_gameplay.gd" id="1_iyp6d"]
 [ext_resource type="Script" path="res://Code/UI/main_menu.gd" id="2_hfx4h"]
@@ -8,7 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://bmdvbin4fx1ku" path="res://Assets, Visual/Characters/foxidlespritesheet-nospark.png" id="6_afi22"]
 [ext_resource type="Texture2D" uid="uid://nydoyu32xe0x" path="res://Assets, Visual/Characters/foxidlesprite-Sheet.png" id="7_nxqy7"]
 [ext_resource type="Texture2D" uid="uid://c2ea5avlfw8ig" path="res://Assets, Visual/Characters/foxwalkspritesheet-nosparks.png" id="8_aplmj"]
+[ext_resource type="Texture2D" uid="uid://dpe68watiovp3" path="res://Assets, Visual/Characters/foxjumpspritesheet-nosparks.png" id="8_fy7tr"]
 [ext_resource type="Texture2D" uid="uid://bb8m73lwj4ldu" path="res://Assets, Visual/Characters/foxwalkspritesheet-sparks.png" id="9_at60g"]
+[ext_resource type="Texture2D" uid="uid://1hnih41r5vp5" path="res://Assets, Visual/Characters/foxjumpspritesheet-sparks.png" id="9_ml8j8"]
 [ext_resource type="Script" path="res://Code/Projectiles/grabber_2d.gd" id="10_4agmn"]
 [ext_resource type="Script" path="res://Code/Projectiles/projectile_ring.gd" id="11_b1g6l"]
 [ext_resource type="Script" path="res://Code/Projectiles/projectile_ring_point.gd" id="12_x2mmr"]
@@ -18,6 +20,8 @@
 [ext_resource type="PackedScene" uid="uid://dj02yo60k0jau" path="res://Gameplay/ROUNDS/fire_area_2d_narrow.tscn" id="16_fdhb2"]
 [ext_resource type="PackedScene" uid="uid://c8w8ra2kccgit" path="res://Gameplay/BASE/ELEMENT ZONES/ice_area_2d.tscn" id="17_xcn37"]
 [ext_resource type="PackedScene" uid="uid://xntuqp1ask1f" path="res://Gameplay/ROUNDS/ice_area_2d_narrow.tscn" id="18_qq7qd"]
+[ext_resource type="Script" path="res://Code/Projectiles/launcher_2d.gd" id="21_utlh0"]
+[ext_resource type="Texture2D" uid="uid://dnlgqndanc3fq" path="res://Assets, Visual/Tiles/world_tileset.png" id="22_jjmkw"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_qcmyt"]
 
@@ -84,6 +88,78 @@ region = Rect2(216, 0, 36, 36)
 [sub_resource type="AtlasTexture" id="AtlasTexture_dhk34"]
 atlas = ExtResource("7_nxqy7")
 region = Rect2(252, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2st0"]
+atlas = ExtResource("8_fy7tr")
+region = Rect2(0, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c33mv"]
+atlas = ExtResource("8_fy7tr")
+region = Rect2(36, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vejsi"]
+atlas = ExtResource("8_fy7tr")
+region = Rect2(72, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7squ2"]
+atlas = ExtResource("8_fy7tr")
+region = Rect2(108, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fbt80"]
+atlas = ExtResource("8_fy7tr")
+region = Rect2(144, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5nxuk"]
+atlas = ExtResource("8_fy7tr")
+region = Rect2(180, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmykj"]
+atlas = ExtResource("8_fy7tr")
+region = Rect2(216, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dsjpi"]
+atlas = ExtResource("8_fy7tr")
+region = Rect2(252, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0px5x"]
+atlas = ExtResource("8_fy7tr")
+region = Rect2(288, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_78j8r"]
+atlas = ExtResource("9_ml8j8")
+region = Rect2(0, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywn5a"]
+atlas = ExtResource("9_ml8j8")
+region = Rect2(36, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_beqwr"]
+atlas = ExtResource("9_ml8j8")
+region = Rect2(72, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ft3ec"]
+atlas = ExtResource("9_ml8j8")
+region = Rect2(108, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ly3w"]
+atlas = ExtResource("9_ml8j8")
+region = Rect2(144, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fubei"]
+atlas = ExtResource("9_ml8j8")
+region = Rect2(180, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfcag"]
+atlas = ExtResource("9_ml8j8")
+region = Rect2(216, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qk03m"]
+atlas = ExtResource("9_ml8j8")
+region = Rect2(252, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3hfo"]
+atlas = ExtResource("9_ml8j8")
+region = Rect2(288, 0, 36, 36)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ncp8q"]
 atlas = ExtResource("8_aplmj")
@@ -211,6 +287,70 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_c2st0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c33mv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vejsi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7squ2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fbt80")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5nxuk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cmykj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dsjpi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0px5x")
+}],
+"loop": false,
+"name": &"jumping",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_78j8r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ywn5a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_beqwr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ft3ec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ly3w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fubei")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tfcag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qk03m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3hfo")
+}],
+"loop": false,
+"name": &"jumping_magnet",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ncp8q")
 }, {
 "duration": 1.0,
@@ -273,6 +413,24 @@ radius = 4.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n6sor"]
 size = Vector2(16, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4orsq"]
+atlas = ExtResource("22_jjmkw")
+region = Rect2(112, 80, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fx4rr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4orsq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jemuk"]
+size = Vector2(16, 16)
 
 [node name="Main Gameplay" type="Node2D"]
 script = ExtResource("1_iyp6d")
@@ -425,9 +583,8 @@ script = ExtResource("5_es8h5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player Character"]
 sprite_frames = SubResource("SpriteFrames_hvuym")
-animation = &"walking"
+animation = &"walking_magnet"
 autoplay = "idle"
-frame_progress = 0.323988
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player Character"]
 position = Vector2(0, 9)
@@ -520,6 +677,18 @@ position = Vector2(416, 60)
 [node name="IceArea2D5" parent="Ice" instance=ExtResource("18_qq7qd")]
 position = Vector2(256, 108)
 
+[node name="Launcher2D" type="StaticBody2D" parent="."]
+position = Vector2(480, 0)
+script = ExtResource("21_utlh0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Launcher2D"]
+position = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_fx4rr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Launcher2D"]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_jemuk")
+
 [connection signal="on_root_ready" from="." to="Main Menu" method="_on_main_gameplay_on_root_ready"]
 [connection signal="on_root_ready" from="." to="UI Gameplay Footer/ZoneTriggerProgressBarUI" method="_on_main_gameplay_on_root_ready"]
 [connection signal="focus_entered" from="Main Menu/MarginContainer/VBoxContainer/Play Button" to="Main Menu" method="_on_play_button_focus_entered"]
@@ -529,6 +698,7 @@ position = Vector2(256, 108)
 [connection signal="focus_entered" from="Main Menu/MarginContainer/VBoxContainer/Quit Button" to="Main Menu" method="_on_quit_button_focus_entered"]
 [connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/Quit Button" to="Main Menu" method="_on_quit_button_pressed"]
 [connection signal="on_player_death" from="Player Character" to="." method="accept_player_death"]
+[connection signal="animation_finished" from="Player Character/AnimatedSprite2D" to="Player Character" method="_stop_jump_animation"]
 [connection signal="pass_input_direction_cancelled" from="Input Router" to="Player Character" method="_accept_direction_input_cancel"]
 [connection signal="pass_input_direction_started" from="Input Router" to="Player Character" method="_accept_direction_input_start"]
 [connection signal="pass_input_fire_started" from="Input Router" to="Player Character" method="accept_fire_input_start"]

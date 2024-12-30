@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://dlkakoyh153qj"]
+
+[ext_resource type="PackedScene" uid="uid://cf8dglma5aajw" path="res://Gameplay/BASE/non_tile_main_gameplay.tscn" id="1_4kflk"]
+[ext_resource type="PackedScene" uid="uid://ccupd4uomkpaf" path="res://Gameplay/BASE/main_ground_tiles.tscn" id="2_yvdfp"]
+[ext_resource type="PackedScene" uid="uid://db6fkft5xo5dn" path="res://Gameplay/BASE/ENEMIES/helicopter_body_2d.tscn" id="3_20jfs"]
+[ext_resource type="PackedScene" uid="uid://btl5ari0641f5" path="res://Gameplay/BASE/ENEMIES/enemy_patrol_path_2d.tscn" id="4_7udof"]
+[ext_resource type="PackedScene" uid="uid://yruc0g7tjufm" path="res://Gameplay/BASE/ENEMIES/spike_body_2d.tscn" id="5_vqn0x"]
+[ext_resource type="PackedScene" uid="uid://bf46gjrewk27s" path="res://Gameplay/BASE/ENEMIES/jerboa_body_2d.tscn" id="6_b0mdn"]
+
+[node name="Main Gameplay" instance=ExtResource("1_4kflk")]
+
+[node name="Ground Tiles" parent="TileMap Controller" index="0" instance=ExtResource("2_yvdfp")]
+
+[node name="HelicopterBody2D" parent="." index="11" instance=ExtResource("3_20jfs")]
+position = Vector2(162, 61)
+
+[node name="EnemyPatrolPath2D" parent="." index="12" instance=ExtResource("4_7udof")]
+position = Vector2(161, 61)
+
+[node name="HelicopterBody2D2" parent="." index="13" instance=ExtResource("3_20jfs")]
+position = Vector2(353, 61)
+
+[node name="EnemyPatrolPath2D2" parent="." index="14" instance=ExtResource("4_7udof")]
+position = Vector2(350, 60)
+
+[node name="SpikeBody2D" parent="." index="15" instance=ExtResource("5_vqn0x")]
+position = Vector2(23, 6)
+
+[node name="SpikeBody2D2" parent="." index="16" instance=ExtResource("5_vqn0x")]
+position = Vector2(24, 216)
+
+[node name="SpikeBody2D3" parent="." index="17" instance=ExtResource("5_vqn0x")]
+position = Vector2(488, 216)
+
+[node name="JerboaBody2D" parent="." index="18" instance=ExtResource("6_b0mdn")]
+position = Vector2(161, 213)
+
+[node name="JerboaBody2D2" parent="." index="19" instance=ExtResource("6_b0mdn")]
+position = Vector2(349, 213)
+scale = Vector2(-1, 1)
+
+[connection signal="tree_exited" from="HelicopterBody2D" to="." method="accept_enemy_death"]
+[connection signal="tree_exited" from="HelicopterBody2D2" to="." method="accept_enemy_death"]
+[connection signal="tree_exited" from="JerboaBody2D" to="." method="accept_enemy_death"]
+[connection signal="tree_exited" from="JerboaBody2D2" to="." method="accept_enemy_death"]

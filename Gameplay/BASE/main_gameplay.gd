@@ -47,6 +47,9 @@ func _respawn_player() -> void:
 func _run_game_over() -> void:
 	get_tree().paused = true
 	print("Game Over")
+	AutoloadLifeTracker._init_lives()
+	AutoloadScoreTracker._set_score(0)
+	AutoloadRoundTracker._init_round()
 
 func _run_next_round() -> void:
 	AutoloadRoundTracker._increment_round()

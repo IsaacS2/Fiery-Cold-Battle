@@ -23,6 +23,7 @@ radius = 4.0
 
 [node name="Projectile2D" type="CharacterBody2D"]
 position = Vector2(408, 104)
+scale = Vector2(1.5, 1.5)
 motion_mode = 1
 script = ExtResource("1_na4j8")
 

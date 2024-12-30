@@ -3,7 +3,7 @@ extends Node
 const FILE_BEGIN = "res://Gameplay/ROUNDS/round"
 
 const STARTING_ROUND: int = 1
-const MAX_ROUND: int = 16
+const MAX_ROUND: int = 8
 var current_round: int
 
 func _ready() -> void:
@@ -14,7 +14,7 @@ func _init_round() -> void:
 
 func _increment_round() -> void:
 	current_round += 1
-	if current_round > MAX_ROUND - 1:
+	if current_round > MAX_ROUND:
 		_init_round()
 
 func _start_round() -> void:
