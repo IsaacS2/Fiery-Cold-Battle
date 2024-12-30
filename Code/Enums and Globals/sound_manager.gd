@@ -1,9 +1,12 @@
 extends Node
 
+@onready var element_state: AudioStreamPlayer = $Elemental/element_state
+@onready var adaptive_music: AudioStreamPlayer = $adaptive_music
+
 
 func play_music():
 	$music.play()
-	
+	#adaptive_music.play()
 #region Test Tones
 
 func play_test_loop():
@@ -37,14 +40,32 @@ func play_projectile_destroyed():
 	$Projectiles/projectile_destroyed.play()
 #endregion
 
-#region Elemental Attacks
+#region Elemental
 
 func play_fire_attack():
-	$Attacks/fire_attack.play()
+	$Elemental/fire_attack.play()
 
 func play_ice_attack():
-	$Attacks/ice_attack.play()
+	$Elemental/ice_attack.play()
+	
+func play_zone_activation(zone_type):
+	if zone_type == 'fire':
+		play_fire_attack()
+	elif zone_type == 'ice':
+		play_ice_attack()
+	else:
+		pass
+		
+func play_elemental_state():
+	pass
+
+func switch_elemental_state(new_state):
+	element_state['parameters/switch_to_clip'] = new_state
+	adaptive_music['parameters/switch_to_clip'] = new_state
+	
 #endregion
+
+
 
 #region Player
 func play_player_footstep():
@@ -58,6 +79,10 @@ func play_player_hurt():
 
 func play_absorb_on():
 	$Player/absorb_on.play()
+	
+func stop_absorb_on():
+	$Player/absorb_on.stop()
+	
 	
 #endregion
 
@@ -78,8 +103,9 @@ func play_enemy_jump():
 	$Enemies/enemy_jump.play()
 
 func play_helicopter_loop():
-	$Enemies/helicopter_blades.play()
-
+	#$Enemies/helicopter_blades.play()
+	pass
+	
 func stop_helicopter_loop():
 	$Enemies/helicopter_blades.stop()
 
@@ -99,6 +125,7 @@ func play_enemy_death(death_cry):
 	
 #endregion
 
-func _ready() -> void:
-	play_music()
+	
+#func _ready() -> void:
+	#play_music()
  

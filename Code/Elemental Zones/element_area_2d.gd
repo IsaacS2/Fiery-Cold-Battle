@@ -1,6 +1,8 @@
 extends Area2D
 class_name ElementArea2D
 
+@export var zone_type : String
+
 const ZONE_ON_DURATION: float = 0.5
 
 var anim: AnimatedSprite2D
@@ -30,6 +32,7 @@ func _trigger() -> void:
 func _turn_on() -> void:
 	is_on = true
 	anim.visible = true
+	SoundManager.play_zone_activation(zone_type)
 	zone_on_countdown = ZONE_ON_DURATION
 	set_physics_process(true)
 
