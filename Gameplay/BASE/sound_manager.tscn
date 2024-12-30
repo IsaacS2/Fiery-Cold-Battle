@@ -234,6 +234,7 @@ bus = &"SFX"
 
 [node name="projectile_destroyed" type="AudioStreamPlayer" parent="Projectiles"]
 stream = SubResource("AudioStreamRandomizer_ofinb")
+volume_db = -6.559
 bus = &"SFX"
 
 [node name="enemy_gun_fire" type="AudioStreamPlayer" parent="Projectiles"]
@@ -268,10 +269,12 @@ bus = &"SFX"
 
 [node name="penguin_honk" type="AudioStreamPlayer" parent="Enemies"]
 stream = SubResource("AudioStreamRandomizer_kaoph")
+volume_db = 6.933
 bus = &"DGX"
 
 [node name="jerboa_squeal" type="AudioStreamPlayer" parent="Enemies"]
 stream = SubResource("AudioStreamRandomizer_nf551")
+volume_db = 3.0
 bus = &"DGX"
 
 [node name="enemy_fs" type="AudioStreamPlayer" parent="Enemies"]
