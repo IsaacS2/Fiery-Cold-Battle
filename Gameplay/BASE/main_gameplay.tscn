@@ -453,7 +453,6 @@ position = Vector2(328, 216)
 
 [connection signal="on_root_ready" from="." to="Main Menu" method="_on_main_gameplay_on_root_ready"]
 [connection signal="on_root_ready" from="." to="UI Gameplay Footer/ZoneTriggerProgressBarUI" method="_on_main_gameplay_on_root_ready"]
-[connection signal="on_root_ready" from="." to="SpikeBody2D" method="_enemy_specific_ready_override"]
 [connection signal="focus_entered" from="Main Menu/MarginContainer/VBoxContainer/Play Button" to="Main Menu" method="_on_play_button_focus_entered"]
 [connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/Play Button" to="Main Menu" method="_on_play_button_pressed"]
 [connection signal="focus_entered" from="Main Menu/MarginContainer/VBoxContainer/Options Button" to="Main Menu" method="_on_options_button_focus_entered"]
