@@ -5,6 +5,7 @@ const SPEED: float = 50.0
 
 
 var direction_value: int = -1
+var chopper_playing: bool = false
 
 func _physics_process(delta: float) -> void:
 	fire_countdown -= delta
@@ -22,6 +23,12 @@ func _physics_process(delta: float) -> void:
 			direction_value = -1
 	
 	move_and_slide()
+	
+	if chopper_playing == false:
+		SoundManager.play_helicopter_loop()
+		chopper_playing = true
+	else:
+		pass
 
 func _fire_projectile() -> void:
 	var projectile: Projectile2D = pool.get_projectile()

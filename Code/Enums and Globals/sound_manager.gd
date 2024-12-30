@@ -77,6 +77,12 @@ func play_enemy_footstep():
 func play_enemy_jump():
 	$Enemies/enemy_jump.play()
 
+func play_helicopter_loop():
+	$Enemies/helicopter_blades.play()
+
+func stop_helicopter_loop():
+	$Enemies/helicopter_blades.stop()
+
 func play_enemy_death(death_cry):
 	if death_cry == 'jerboa' :
 		play_jerboa_squeal()
@@ -85,6 +91,7 @@ func play_enemy_death(death_cry):
 		play_penguin_honk()
 		print('honknhonk')
 	elif death_cry == 'helicopter':
+		stop_helicopter_loop()
 		play_helicopter_explosion()
 		print('da choppa')
 		
