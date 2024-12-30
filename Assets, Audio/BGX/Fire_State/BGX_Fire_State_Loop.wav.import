@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b638lhegjq13d"
+path="res://.godot/imported/BGX_Fire_State_Loop.wav-0cb189144e69934aac8f404509c4c765.sample"
+
+[deps]
+
+source_file="res://Assets, Audio/BGX/Fire_State/BGX_Fire_State_Loop.wav"
+dest_files=["res://.godot/imported/BGX_Fire_State_Loop.wav-0cb189144e69934aac8f404509c4c765.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
