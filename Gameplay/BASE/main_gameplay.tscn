@@ -589,7 +589,6 @@ script = ExtResource("3_u8hg1")
 sprite_frames = SubResource("SpriteFrames_hvuym")
 animation = &"walking"
 autoplay = "idle"
-frame_progress = 0.323988
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player Character"]
 position = Vector2(0, 8)
@@ -681,8 +680,6 @@ position = Vector2(232, 216)
 [node name="FireArea2D" parent="." instance=ExtResource("19_7fbmi")]
 position = Vector2(328, 216)
 
-[connection signal="on_root_ready" from="." to="Main Menu" method="_on_main_gameplay_on_root_ready"]
-[connection signal="on_root_ready" from="." to="UI Gameplay Footer/ZoneTriggerProgressBarUI" method="_on_main_gameplay_on_root_ready"]
 [connection signal="focus_entered" from="Main Menu/MarginContainer/VBoxContainer/Play Button" to="Main Menu" method="_on_play_button_focus_entered"]
 [connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/Play Button" to="Main Menu" method="_on_play_button_pressed"]
 [connection signal="focus_entered" from="Main Menu/MarginContainer/VBoxContainer/Options Button" to="Main Menu" method="_on_options_button_focus_entered"]
