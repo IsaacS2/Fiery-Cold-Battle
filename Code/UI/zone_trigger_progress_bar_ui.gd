@@ -20,9 +20,12 @@ func _process(delta: float) -> void:
 
 func _progress_bar_logic() -> void:
 	if not player:
+		player = AutoloadPlayerCharacterFinder.player
+	if not player:
 		print("no player found by zone trigger")
 		return
 	value = player.zone_trigger_countup
+	max_value = player.ZONE_TRIGGER_DELAY
 	
 	# replace this logic with something that swaps sprite textures
 	if player.current_element == Common.Elements.FIRE and ui_icon and not ui_icon.self_modulate == COLOR_RED:
