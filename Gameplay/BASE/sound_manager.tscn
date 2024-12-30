@@ -328,7 +328,6 @@ bus = &"MUS"
 
 [node name="adaptive_music" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamInteractive_2i45h")
-autoplay = true
 bus = &"MUS"
 
 [node name="music" type="AudioStreamPlayer" parent="."]
