@@ -53,7 +53,7 @@ func accept_grab_input_start() -> void:
 func accept_fire_input_start() -> void:
 	grabber.fire_projectiles()
 	var underscore_index = anim.animation.find('_')
-	anim.animation = anim.animation.erase(underscore_index, 8)
+	if (underscore_index >= 0): anim.animation = anim.animation.erase(underscore_index, 8)
 
 func accept_zone_trigger_input_start() -> void:
 	if zone_trigger_countup < ZONE_TRIGGER_DELAY:
@@ -104,7 +104,7 @@ func _physics_process(delta: float) -> void:
 	# Handle jump
 	if Input.is_action_just_pressed("ui_select") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-		anim.animation = "jump"
+		anim.animation = "jumping"
 		SoundManager.play_player_jump()
 		previously_airborn = true
 
