@@ -8,6 +8,7 @@ var ring_points: Array
 var captured_projectiles: Array
 
 func _ready() -> void:
+	captured_projectiles.clear()
 	var children: Array = get_children()
 	for child in children:
 		if child is ProjectileRingPoint:
