@@ -203,9 +203,16 @@ script = ExtResource("11_mgyay")
 [node name="Projectile Pool" type="Node" parent="." groups=["Projectile Pool"]]
 script = ExtResource("12_avueq")
 
+[connection signal="on_root_ready" from="." to="Main Menu" method="_on_main_gameplay_on_root_ready"]
 [connection signal="focus_entered" from="Main Menu/MarginContainer/VBoxContainer/Play Button" to="Main Menu" method="_on_play_button_focus_entered"]
 [connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/Play Button" to="Main Menu" method="_on_play_button_pressed"]
 [connection signal="focus_entered" from="Main Menu/MarginContainer/VBoxContainer/Options Button" to="Main Menu" method="_on_options_button_focus_entered"]
 [connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/Options Button" to="Main Menu" method="_on_options_button_pressed"]
 [connection signal="focus_entered" from="Main Menu/MarginContainer/VBoxContainer/Quit Button" to="Main Menu" method="_on_quit_button_focus_entered"]
 [connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/Quit Button" to="Main Menu" method="_on_quit_button_pressed"]
+[connection signal="on_player_death" from="Player Character" to="." method="accept_player_death"]
+[connection signal="pass_input_direction_cancelled" from="Input Router" to="Player Character" method="_accept_direction_input_cancel"]
+[connection signal="pass_input_direction_started" from="Input Router" to="Player Character" method="_accept_direction_input_start"]
+[connection signal="pass_input_fire_started" from="Input Router" to="Player Character" method="accept_fire_input_start"]
+[connection signal="pass_input_grab_started" from="Input Router" to="Player Character" method="accept_grab_input_start"]
+[connection signal="pass_input_zone_trigger_started" from="Input Router" to="Player Character" method="accept_zone_trigger_input_start"]
