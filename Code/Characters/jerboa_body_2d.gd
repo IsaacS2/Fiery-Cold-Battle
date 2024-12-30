@@ -33,6 +33,7 @@ func _jump_logic(delta: float) -> void:
 		jump_countdown -= delta
 	elif is_on_floor and jump_reset == true and jump_countdown <= 0:
 		velocity.y = JUMP_VELOCITY
+		SoundManager.play_enemy_jump()
 		fire_reset = true
 		jump_reset = false
 
