@@ -34,7 +34,7 @@ func on_spawn() -> void:
 	velocity = Vector2.ZERO
 
 func accept_grab_input_start() -> void:
-	grabber.check_projectiles()
+	grabber.start_grabbing()
 
 func accept_fire_input_start() -> void:
 	grabber.fire_projectiles()
