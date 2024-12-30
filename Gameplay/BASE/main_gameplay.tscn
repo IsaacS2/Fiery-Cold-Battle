@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://dexxba02ycjr0"]
+[gd_scene load_steps=33 format=4 uid="uid://dexxba02ycjr0"]
 
 [ext_resource type="Script" path="res://Code/UI/main_menu.gd" id="1_c6hhf"]
 [ext_resource type="Script" path="res://Gameplay/BASE/main_gameplay.gd" id="1_f785w"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://Code/Projectiles/projectile_ring.gd" id="8_ow6ti"]
 [ext_resource type="Script" path="res://Code/Projectiles/projectile_pool.gd" id="9_2qdxl"]
 [ext_resource type="Script" path="res://Code/Projectiles/projectile_ring_point.gd" id="9_bkcq7"]
+[ext_resource type="PackedScene" uid="uid://yruc0g7tjufm" path="res://Gameplay/BASE/ENEMIES/spike_body_2d.tscn" id="12_gd8de"]
 [ext_resource type="PackedScene" uid="uid://btl5ari0641f5" path="res://Gameplay/BASE/ENEMIES/enemy_patrol_path_2d.tscn" id="13_rd6lr"]
 [ext_resource type="PackedScene" uid="uid://db6fkft5xo5dn" path="res://Gameplay/BASE/ENEMIES/helicopter_body_2d.tscn" id="14_528y5"]
 [ext_resource type="PackedScene" uid="uid://cwf7p02m0pwcn" path="res://Gameplay/BASE/ENEMIES/penguin_body_2d.tscn" id="14_ltfv3"]
@@ -441,6 +442,10 @@ position = Vector2(80, 176)
 position = Vector2(392, 224)
 death_noise = ""
 
+[node name="SpikeBody2D" parent="." instance=ExtResource("12_gd8de")]
+position = Vector2(456, 24)
+collision_mask = 2
+
 [node name="IceArea2D" parent="." instance=ExtResource("18_fjuj4")]
 position = Vector2(232, 216)
 
@@ -449,6 +454,7 @@ position = Vector2(328, 216)
 
 [connection signal="on_root_ready" from="." to="Main Menu" method="_on_main_gameplay_on_root_ready"]
 [connection signal="on_root_ready" from="." to="UI Gameplay Footer/ZoneTriggerProgressBarUI" method="_on_main_gameplay_on_root_ready"]
+[connection signal="on_root_ready" from="." to="SpikeBody2D" method="_enemy_specific_ready_override"]
 [connection signal="focus_entered" from="Main Menu/MarginContainer/VBoxContainer/Play Button" to="Main Menu" method="_on_play_button_focus_entered"]
 [connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/Play Button" to="Main Menu" method="_on_play_button_pressed"]
 [connection signal="focus_entered" from="Main Menu/MarginContainer/VBoxContainer/Options Button" to="Main Menu" method="_on_options_button_focus_entered"]
