@@ -1,6 +1,8 @@
 extends Node
 
 
+
+
 func play_music():
 	$music.play()
 	
@@ -37,14 +39,30 @@ func play_projectile_destroyed():
 	$Projectiles/projectile_destroyed.play()
 #endregion
 
-#region Elemental Attacks
+#region Elemental
 
 func play_fire_attack():
-	$Attacks/fire_attack.play()
+	$Elemental/fire_attack.play()
 
 func play_ice_attack():
-	$Attacks/ice_attack.play()
+	$Elemental/ice_attack.play()
+	
+func play_zone_activation(zone_type):
+	if zone_type == 'fire':
+		play_fire_attack()
+	elif zone_type == 'ice':
+		play_ice_attack()
+	else:
+		pass
+		
+func play_elemental_state():
+	pass
+
+func switch_elemental_state(new_state):
+	$Elemental/element_state.parameters/switch_to_clip
 #endregion
+
+
 
 #region Player
 func play_player_footstep():
@@ -99,6 +117,7 @@ func play_enemy_death(death_cry):
 	
 #endregion
 
-func _ready() -> void:
-	play_music()
+	
+#func _ready() -> void:
+	#play_music()
  

@@ -60,8 +60,10 @@ func accept_zone_trigger_input_start() -> void:
 func _swap_element() -> void:
 	if current_element == Common.Elements.FIRE:
 		current_element = Common.Elements.ICE
+		SoundManager.switch_elemental_state('ice')
 	elif current_element == Common.Elements.ICE:
 		current_element = Common.Elements.FIRE
+		SoundManager.switch_elemental_state('fire')
 
 func _accept_direction_input_start(direction: Common.Direction) -> void:
 	if direction == Common.Direction.RIGHT:

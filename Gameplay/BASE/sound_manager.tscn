@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=3 uid="uid://drv017acmym5s"]
+[gd_scene load_steps=99 format=3 uid="uid://drv017acmym5s"]
 
 [ext_resource type="Script" path="res://Code/Enums and Globals/sound_manager.gd" id="1_8lswa"]
 [ext_resource type="AudioStream" uid="uid://bqp4sl7ehhg72" path="res://Assets, Audio/SFX/Test Tones/Test_Loop.ogg" id="2_m2dfm"]
@@ -80,6 +80,8 @@
 [ext_resource type="AudioStream" uid="uid://b085iulntft1u" path="res://Assets, Audio/SFX/Enemies/helicopter_explosion/helicopter_explosion-003.ogg" id="68_vbx72"]
 [ext_resource type="AudioStream" uid="uid://b2iudoiu3yfmw" path="res://Assets, Audio/SFX/Enemies/helicopter_explosion/helicopter_explosion-004.ogg" id="69_qe4nd"]
 [ext_resource type="AudioStream" uid="uid://cpgipwl5o5rbe" path="res://Assets, Audio/SFX/Enemies/Helicopter_loop/Helicopter_loop.ogg" id="70_rhuoi"]
+[ext_resource type="AudioStream" uid="uid://bvg6ahplj27x7" path="res://Assets, Audio/BGX/Fire_State/BGX_Fire_State_Loop.ogg" id="81_mh7od"]
+[ext_resource type="AudioStream" uid="uid://b7q8emb36jvif" path="res://Assets, Audio/BGX/Ice_State/BGX_Ice_State_Loop.ogg" id="82_4recs"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_1m67x"]
 streams_count = 4
@@ -208,11 +210,53 @@ stream_2/stream = ExtResource("32_olgoa")
 stream_3/stream = ExtResource("33_au8nv")
 stream_4/stream = ExtResource("34_o40td")
 
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_vllow"]
+clip_count = 2
+clip_0/name = &"fire"
+clip_0/stream = ExtResource("81_mh7od")
+clip_0/auto_advance = 0
+clip_1/name = &"ice"
+clip_1/stream = ExtResource("82_4recs")
+clip_1/auto_advance = 0
+_transitions = {
+Vector2i(-1, -1): {
+"fade_beats": 1,
+"fade_mode": 3,
+"from_time": 0,
+"to_time": 0
+},
+Vector2i(-1, 0): {
+"fade_beats": 1,
+"fade_mode": 3,
+"from_time": 0,
+"to_time": 0
+},
+Vector2i(-1, 1): {
+"fade_beats": 1,
+"fade_mode": 3,
+"from_time": 0,
+"to_time": 0
+},
+Vector2i(0, 1): {
+"fade_beats": 1,
+"fade_mode": 4,
+"from_time": 0,
+"to_time": 0
+},
+Vector2i(1, 0): {
+"fade_beats": 1,
+"fade_mode": 4,
+"from_time": 0,
+"to_time": 0
+}
+}
+
 [node name="Sound_Manager" type="Node"]
 script = ExtResource("1_8lswa")
 
 [node name="music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_j6j7t")
+autoplay = true
 bus = &"MUS"
 
 [node name="test_tones" type="Node" parent="."]
@@ -309,10 +353,17 @@ stream = ExtResource("70_rhuoi")
 volume_db = -18.0
 bus = &"SFX"
 
-[node name="Attacks" type="Node" parent="."]
+[node name="Elemental" type="Node" parent="."]
 
-[node name="fire_attack" type="AudioStreamPlayer" parent="Attacks"]
+[node name="fire_attack" type="AudioStreamPlayer" parent="Elemental"]
 stream = SubResource("AudioStreamRandomizer_o1lp8")
+bus = &"SFX"
 
-[node name="ice_attack" type="AudioStreamPlayer" parent="Attacks"]
+[node name="ice_attack" type="AudioStreamPlayer" parent="Elemental"]
 stream = SubResource("AudioStreamRandomizer_wio6k")
+bus = &"SFX"
+
+[node name="element_state" type="AudioStreamPlayer" parent="Elemental"]
+stream = SubResource("AudioStreamInteractive_vllow")
+autoplay = true
+bus = &"BGX"
