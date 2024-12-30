@@ -20,6 +20,7 @@ func _process(delta: float) -> void:
 
 func _progress_bar_logic() -> void:
 	if not player:
+		print("no player found by zone trigger")
 		return
 	value = player.zone_trigger_countup
 	
