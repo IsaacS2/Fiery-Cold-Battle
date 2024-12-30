@@ -45,7 +45,7 @@ func _listen_for_grab_start() -> void:
 		input_start_grab.emit()
 
 func _listen_for_fire_start() -> void:
-	if Input.is_action_just_pressed("Fire"):
+	if Input.is_action_just_released("Grab"):
 		input_start_fire.emit()
 
 func _listen_for_zone_trigger_start() -> void:
