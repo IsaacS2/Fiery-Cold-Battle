@@ -13,6 +13,8 @@ func _enemy_specific_ready_override() -> void:
 	element_vulnerable = Common.Elements.ICE
 
 func _physics_process(delta: float) -> void:
+	_check_facing()
+	
 	velocity.x = 0
 	
 	if not is_on_floor() and velocity.y > 0 and fire_reset == true:

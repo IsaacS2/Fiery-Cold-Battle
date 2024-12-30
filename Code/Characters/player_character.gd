@@ -3,8 +3,10 @@ class_name PlayerCharacter2D
 
 signal on_player_death()
 
+#variables for footstep animations
 @onready var animator: AnimatedSprite2D = $AnimatedSprite2D
 var previous_frame: int
+var previously_airborn = false
 
 const ACCELERATION = 200.0
 const DECELERATION = 600.0
@@ -33,7 +35,8 @@ var sprite_flicker_countdown: float = 0
 
 
 func _ready() -> void:
-	print("character ready")
+	AutoloadPlayerCharacterFinder.accept_player(self)
+	# print("character ready")
 	var children: Array = get_children()
 	for child in children:
 		if child is Grabber2D:
@@ -90,11 +93,12 @@ func _accept_direction_input_cancel(direction: Common.Direction) -> void:
 		isLeftInput = false
 
 func _physics_process(delta: float) -> void:
-	var previously_airborn = false
+
 	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+		previously_airborn = true
 	
 	_invulnerable_logic(delta)
 	_zone_trigger_countup_logic(delta)
@@ -106,13 +110,13 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 		anim.animation = "jumping"
 		SoundManager.play_player_jump()
-		previously_airborn = true
+		
 
 	_process_horizontal_movement(delta)
 	
 	move_and_slide()
 	
-	#handle footsteps
+	#handle footstep and jump sounds
 	
 	if (animator.animation == 'walking' or 'walking_magnet') and velocity.x != 0 and is_on_floor():
 		if (animator.frame == 3 or 5) and previous_frame != animator.frame:
@@ -122,7 +126,7 @@ func _physics_process(delta: float) -> void:
 	
 	if is_on_floor() and previously_airborn == true :
 		SoundManager.play_player_footstep()
-		previously_airborn == false
+		previously_airborn = false
 		
 
 func _zone_trigger_countup_logic(delta: float) -> void:
