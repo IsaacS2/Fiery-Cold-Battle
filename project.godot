@@ -24,6 +24,7 @@ AutoloadScoreTracker="*res://Code/UI/autoload_score_tracker.gd"
 SoundManager="*res://Gameplay/BASE/sound_manager.tscn"
 AutoloadLifeTracker="*res://Code/Enums and Globals/autoload_life_tracker.gd"
 AutoloadRoundTracker="*res://Code/Enums and Globals/autoload_round_tracker.gd"
+AutoloadPlayerCharacterFinder="*res://Code/Characters/autoload_player_character_finder.gd"
 
 [display]
 

@@ -7,6 +7,8 @@ const SPEED: float = 50.0
 var direction_value: int = -1
 
 func _physics_process(delta: float) -> void:
+	_check_facing()
+	
 	fire_countdown -= delta
 	if fire_countdown < 0:
 		fire_countdown = fire_delay
