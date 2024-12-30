@@ -103,8 +103,8 @@ func play_enemy_jump():
 	$Enemies/enemy_jump.play()
 
 func play_helicopter_loop():
-	#$Enemies/helicopter_blades.play()
-	pass
+	$Enemies/helicopter_blades.play()
+	#pass
 	
 func stop_helicopter_loop():
 	$Enemies/helicopter_blades.stop()
