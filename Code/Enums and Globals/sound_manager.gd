@@ -68,14 +68,35 @@ func play_penguin_honk():
 func play_jerboa_squeal():
 	$Enemies/jerboa_squeal.play()
 
+func play_helicopter_explosion():
+	$Enemies/helilcopter_explosion.play()
+
 func play_enemy_footstep():
 	$Enemies/enemy_fs.play()
 
 func play_enemy_jump():
 	$Enemies/enemy_jump.play()
 
-func play_enemy_death():
-	pass
+func play_helicopter_loop():
+	$Enemies/helicopter_blades.play()
+
+func stop_helicopter_loop():
+	$Enemies/helicopter_blades.stop()
+
+func play_enemy_death(death_cry):
+	if death_cry == 'jerboa' :
+		play_jerboa_squeal()
+		print('jerrrrb')
+	elif death_cry == 'penguin' :
+		play_penguin_honk()
+		print('honknhonk')
+	elif death_cry == 'helicopter':
+		stop_helicopter_loop()
+		play_helicopter_explosion()
+		print('da choppa')
+		
+		
+	
 #endregion
 
 func _ready() -> void:

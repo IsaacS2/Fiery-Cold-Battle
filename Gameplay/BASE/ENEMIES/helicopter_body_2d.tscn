@@ -38,6 +38,7 @@ position = Vector2(73, 163)
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_fekn0")
+death_noise = "helicopter"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_o57im")

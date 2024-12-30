@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cpgipwl5o5rbe"
+path="res://.godot/imported/Helicopter_loop.ogg-c36f8d6e53868b60ca6ae99a628e524b.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets, Audio/SFX/Enemies/Helicopter_loop/Helicopter_loop.ogg"
+dest_files=["res://.godot/imported/Helicopter_loop.ogg-c36f8d6e53868b60ca6ae99a628e524b.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
