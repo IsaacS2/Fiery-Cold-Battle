@@ -1,6 +1,6 @@
 extends Node
 
-
+@onready var element_state: AudioStreamPlayer = $Elemental/element_state
 
 
 func play_music():
@@ -59,7 +59,7 @@ func play_elemental_state():
 	pass
 
 func switch_elemental_state(new_state):
-	$Elemental/element_state.parameters/switch_to_clip
+	element_state['parameters/switch_to_clip'] = new_state
 #endregion
 
 
