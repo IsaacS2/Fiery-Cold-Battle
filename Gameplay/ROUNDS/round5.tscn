@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://cuc2geu4ukvvd"]
+
+[ext_resource type="PackedScene" uid="uid://cf8dglma5aajw" path="res://Gameplay/BASE/non_tile_main_gameplay.tscn" id="1_k8klt"]
+[ext_resource type="PackedScene" uid="uid://ccupd4uomkpaf" path="res://Gameplay/BASE/main_ground_tiles.tscn" id="2_4sh77"]
+[ext_resource type="PackedScene" uid="uid://bf46gjrewk27s" path="res://Gameplay/BASE/ENEMIES/jerboa_body_2d.tscn" id="3_iaqa4"]
+[ext_resource type="PackedScene" uid="uid://db6fkft5xo5dn" path="res://Gameplay/BASE/ENEMIES/helicopter_body_2d.tscn" id="4_xqddf"]
+[ext_resource type="PackedScene" uid="uid://btl5ari0641f5" path="res://Gameplay/BASE/ENEMIES/enemy_patrol_path_2d.tscn" id="5_b6it8"]
+
+[node name="Main Gameplay" instance=ExtResource("1_k8klt")]
+
+[node name="Ground Tiles" parent="TileMap Controller" index="0" instance=ExtResource("2_4sh77")]
+
+[node name="JerboaBody2D" parent="." index="11" instance=ExtResource("3_iaqa4")]
+position = Vector2(480, 213)
+scale = Vector2(-1, 1)
+
+[node name="JerboaBody2D2" parent="." index="12" instance=ExtResource("3_iaqa4")]
+position = Vector2(30, 212)
+
+[node name="HelicopterBody2D" parent="." index="13" instance=ExtResource("4_xqddf")]
+position = Vector2(94, 116)
+
+[node name="EnemyPatrolPath2D" parent="." index="14" instance=ExtResource("5_b6it8")]
+position = Vector2(93, 116)
+
+[node name="EnemyPatrolPath2D2" parent="." index="15" instance=ExtResource("5_b6it8")]
+position = Vector2(417, 117)
+
+[node name="HelicopterBody2D2" parent="." index="16" instance=ExtResource("4_xqddf")]
+position = Vector2(418, 116)
+
+[connection signal="tree_exited" from="JerboaBody2D" to="." method="accept_enemy_death"]
+[connection signal="tree_exited" from="JerboaBody2D2" to="." method="accept_enemy_death"]
+[connection signal="tree_exited" from="HelicopterBody2D" to="." method="accept_enemy_death"]
+[connection signal="tree_exited" from="HelicopterBody2D2" to="." method="accept_enemy_death"]

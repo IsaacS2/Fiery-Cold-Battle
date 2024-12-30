@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1lkvbl70ld24"]
+
+[ext_resource type="PackedScene" uid="uid://cf8dglma5aajw" path="res://Gameplay/BASE/non_tile_main_gameplay.tscn" id="1_2oykv"]
+[ext_resource type="PackedScene" uid="uid://ccupd4uomkpaf" path="res://Gameplay/BASE/main_ground_tiles.tscn" id="2_nvo4m"]
+[ext_resource type="PackedScene" uid="uid://db6fkft5xo5dn" path="res://Gameplay/BASE/ENEMIES/helicopter_body_2d.tscn" id="3_7kb8r"]
+[ext_resource type="PackedScene" uid="uid://btl5ari0641f5" path="res://Gameplay/BASE/ENEMIES/enemy_patrol_path_2d.tscn" id="4_cv1pu"]
+
+[node name="Main Gameplay" instance=ExtResource("1_2oykv")]
+
+[node name="Ground Tiles" parent="TileMap Controller" index="0" instance=ExtResource("2_nvo4m")]
+
+[node name="HelicopterBody2D" parent="." index="11" instance=ExtResource("3_7kb8r")]
+position = Vector2(257, 67)
+
+[node name="EnemyPatrolPath2D" parent="." index="12" instance=ExtResource("4_cv1pu")]
+position = Vector2(256, 67)
+
+[node name="HelicopterBody2D2" parent="." index="13" instance=ExtResource("3_7kb8r")]
+position = Vector2(255, 183)
+
+[node name="EnemyPatrolPath2D2" parent="." index="14" instance=ExtResource("4_cv1pu")]
+position = Vector2(256, 183)
+
+[connection signal="tree_exited" from="HelicopterBody2D" to="." method="accept_enemy_death"]
+[connection signal="tree_exited" from="HelicopterBody2D2" to="." method="accept_enemy_death"]

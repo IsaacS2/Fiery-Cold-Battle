@@ -1,50 +1,58 @@
-[gd_scene load_steps=12 format=3 uid="uid://bf46gjrewk27s"]
+[gd_scene load_steps=14 format=3 uid="uid://bf46gjrewk27s"]
 
 [ext_resource type="Script" path="res://Code/Characters/jerboa_body_2d.gd" id="1_o0jab"]
-[ext_resource type="Texture2D" uid="uid://dvjphjijff13g" path="res://Assets, Visual/Characters/slime_purple.png" id="2_cx05l"]
+[ext_resource type="Texture2D" uid="uid://cx23noacvoxka" path="res://Assets, Visual/Characters/jerboajumpspritesheet.png" id="2_x88wb"]
 [ext_resource type="Script" path="res://Code/Characters/enemy_kill_box.gd" id="3_e72wm"]
 [ext_resource type="Script" path="res://Code/Projectiles/fire_point_2d.gd" id="4_htf2e"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_avgmm"]
-atlas = ExtResource("2_cx05l")
-region = Rect2(0, 0, 24, 24)
+[sub_resource type="AtlasTexture" id="AtlasTexture_84ni0"]
+atlas = ExtResource("2_x88wb")
+region = Rect2(0, 0, 36, 36)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yeqkg"]
-atlas = ExtResource("2_cx05l")
-region = Rect2(24, 0, 24, 24)
+[sub_resource type="AtlasTexture" id="AtlasTexture_rcuvj"]
+atlas = ExtResource("2_x88wb")
+region = Rect2(36, 0, 36, 36)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sssp1"]
-atlas = ExtResource("2_cx05l")
-region = Rect2(48, 0, 24, 24)
+[sub_resource type="AtlasTexture" id="AtlasTexture_4a60j"]
+atlas = ExtResource("2_x88wb")
+region = Rect2(72, 0, 36, 36)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_x0id7"]
-atlas = ExtResource("2_cx05l")
-region = Rect2(72, 0, 24, 24)
+[sub_resource type="AtlasTexture" id="AtlasTexture_2jrtb"]
+atlas = ExtResource("2_x88wb")
+region = Rect2(108, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f30mf"]
+atlas = ExtResource("2_x88wb")
+region = Rect2(144, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8sek"]
+atlas = ExtResource("2_x88wb")
+region = Rect2(180, 0, 36, 36)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2sy4a"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_avgmm")
+"texture": SubResource("AtlasTexture_84ni0")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yeqkg")
+"texture": SubResource("AtlasTexture_rcuvj")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_sssp1")
+"texture": SubResource("AtlasTexture_4a60j")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_x0id7")
+"texture": SubResource("AtlasTexture_2jrtb")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_sssp1")
+"texture": SubResource("AtlasTexture_f30mf")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yeqkg")
+"texture": SubResource("AtlasTexture_b8sek")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 12.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s4rk6"]
@@ -53,7 +61,7 @@ size = Vector2(10, 11)
 [sub_resource type="CircleShape2D" id="CircleShape2D_lxm4x"]
 radius = 7.0
 
-[node name="JerboaBody2D" type="CharacterBody2D"]
+[node name="JerboaBody2D" type="CharacterBody2D" groups=["Enemy Character"]]
 position = Vector2(73, 163)
 collision_layer = 2
 collision_mask = 3
@@ -61,17 +69,19 @@ script = ExtResource("1_o0jab")
 death_noise = "jerboa"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -4)
 sprite_frames = SubResource("SpriteFrames_2sy4a")
 autoplay = "default"
-frame = 3
 frame_progress = 0.560265
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 6.5)
+position = Vector2(0, 5.5)
+scale = Vector2(1.25, 1.25)
 shape = SubResource("RectangleShape2D_s4rk6")
 
 [node name="Enemy Kill Box" type="Area2D" parent="."]
-position = Vector2(0, 2)
+position = Vector2(0, 1)
+scale = Vector2(1.25, 1.25)
 script = ExtResource("3_e72wm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy Kill Box"]
@@ -79,7 +89,7 @@ position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_lxm4x")
 
 [node name="FirePoint2D" type="Node2D" parent="."]
-position = Vector2(13.835, 3.03)
+position = Vector2(13.835, -0.97)
 script = ExtResource("4_htf2e")
 
 [connection signal="body_entered" from="Enemy Kill Box" to="Enemy Kill Box" method="_on_body_entered"]

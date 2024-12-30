@@ -22,6 +22,8 @@ Groups="*res://Code/Enums and Globals/groups.gd"
 AutoloadInputHandler="*res://Code/Input/autoload_input_handler.gd"
 AutoloadScoreTracker="*res://Code/UI/autoload_score_tracker.gd"
 SoundManager="*res://Gameplay/BASE/sound_manager.tscn"
+AutoloadLifeTracker="*res://Code/Enums and Globals/autoload_life_tracker.gd"
+AutoloadRoundTracker="*res://Code/Enums and Globals/autoload_round_tracker.gd"
 
 [display]
 

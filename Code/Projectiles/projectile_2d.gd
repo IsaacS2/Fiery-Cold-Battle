@@ -29,7 +29,7 @@ func _physics_process(delta: float) -> void:
 		_on_collision(collision)
 		
 func _on_collision(collision: KinematicCollision2D) -> void:
-	#print(collision)
+	print(collision)
 	var collider = collision.get_collider()
 	var player = collider as PlayerCharacter2D
 	if player:
@@ -64,7 +64,7 @@ func deactivate() -> void:
 	collision_layer = 0
 	collision_mask = 0
 	velocity = Vector2.ZERO
-	global_position = Vector2(-1000, -1000)
+	# global_position = Vector2(-1000, -1000)
 	is_captured = false
 
 func capture() -> void:

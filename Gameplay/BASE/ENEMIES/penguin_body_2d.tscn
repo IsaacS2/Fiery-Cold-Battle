@@ -1,50 +1,58 @@
-[gd_scene load_steps=12 format=3 uid="uid://cwf7p02m0pwcn"]
+[gd_scene load_steps=14 format=3 uid="uid://cwf7p02m0pwcn"]
 
 [ext_resource type="Script" path="res://Code/Characters/penguin_body_2d.gd" id="1_shm4k"]
-[ext_resource type="Texture2D" uid="uid://vfqg8vsqbv7l" path="res://Assets, Visual/Characters/slime_green.png" id="2_m07bu"]
+[ext_resource type="Texture2D" uid="uid://bgj3j06mp6vmp" path="res://Assets, Visual/Characters/penguinwalkspritesheet.png" id="2_0t32j"]
 [ext_resource type="Script" path="res://Code/Characters/enemy_kill_box.gd" id="3_h71me"]
 [ext_resource type="Script" path="res://Code/Projectiles/fire_point_2d.gd" id="4_2vt6g"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8s4hf"]
-atlas = ExtResource("2_m07bu")
-region = Rect2(0, 0, 24, 24)
+[sub_resource type="AtlasTexture" id="AtlasTexture_hegv2"]
+atlas = ExtResource("2_0t32j")
+region = Rect2(0, 0, 36, 36)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_b2l6b"]
-atlas = ExtResource("2_m07bu")
-region = Rect2(24, 0, 24, 24)
+[sub_resource type="AtlasTexture" id="AtlasTexture_rwvxw"]
+atlas = ExtResource("2_0t32j")
+region = Rect2(36, 0, 36, 36)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hoyg4"]
-atlas = ExtResource("2_m07bu")
-region = Rect2(48, 0, 24, 24)
+[sub_resource type="AtlasTexture" id="AtlasTexture_slv2u"]
+atlas = ExtResource("2_0t32j")
+region = Rect2(72, 0, 36, 36)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vvl3l"]
-atlas = ExtResource("2_m07bu")
-region = Rect2(72, 0, 24, 24)
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpgt1"]
+atlas = ExtResource("2_0t32j")
+region = Rect2(108, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5cbrm"]
+atlas = ExtResource("2_0t32j")
+region = Rect2(144, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gs8x5"]
+atlas = ExtResource("2_0t32j")
+region = Rect2(180, 0, 36, 36)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2sy4a"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8s4hf")
+"texture": SubResource("AtlasTexture_hegv2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_b2l6b")
+"texture": SubResource("AtlasTexture_rwvxw")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hoyg4")
+"texture": SubResource("AtlasTexture_slv2u")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vvl3l")
+"texture": SubResource("AtlasTexture_gpgt1")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hoyg4")
+"texture": SubResource("AtlasTexture_5cbrm")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_b2l6b")
+"texture": SubResource("AtlasTexture_gs8x5")
 }],
 "loop": true,
-"name": &"default",
-"speed": 5.0
+"name": &"waddling",
+"speed": 12.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s4rk6"]
@@ -53,7 +61,7 @@ size = Vector2(10, 11)
 [sub_resource type="CircleShape2D" id="CircleShape2D_lxm4x"]
 radius = 7.0
 
-[node name="PenguinBody2D" type="CharacterBody2D"]
+[node name="PenguinBody2D" type="CharacterBody2D" groups=["Enemy Character"]]
 position = Vector2(73, 163)
 collision_layer = 2
 collision_mask = 3
@@ -61,25 +69,28 @@ script = ExtResource("1_shm4k")
 death_noise = "penguin"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -4)
 sprite_frames = SubResource("SpriteFrames_2sy4a")
-autoplay = "default"
-frame = 2
-frame_progress = 0.602964
+animation = &"waddling"
+autoplay = "waddling"
+frame_progress = 0.208274
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 6.5)
+position = Vector2(0, 2.5)
+scale = Vector2(1.25, 1.25)
 shape = SubResource("RectangleShape2D_s4rk6")
 
 [node name="Enemy Kill Box" type="Area2D" parent="."]
-position = Vector2(0, 2)
+position = Vector2(0, -2)
 script = ExtResource("3_h71me")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy Kill Box"]
-position = Vector2(0, 3)
+position = Vector2(0, 5)
+scale = Vector2(1.25, 1.25)
 shape = SubResource("CircleShape2D_lxm4x")
 
 [node name="FirePoint2D" type="Node2D" parent="."]
-position = Vector2(13.835, 3.03)
+position = Vector2(13.835, -0.97)
 script = ExtResource("4_2vt6g")
 
 [connection signal="body_entered" from="Enemy Kill Box" to="Enemy Kill Box" method="_on_body_entered"]

@@ -48,9 +48,12 @@ func on_spawn() -> void:
 
 func accept_grab_input_start() -> void:
 	grabber.start_grabbing()
+	anim.animation = anim.animation + "_magnet"
 
 func accept_fire_input_start() -> void:
 	grabber.fire_projectiles()
+	var underscore_index = anim.animation.find('_')
+	anim.animation = anim.animation.erase(underscore_index, 8)
 
 func accept_zone_trigger_input_start() -> void:
 	if zone_trigger_countup < ZONE_TRIGGER_DELAY:
@@ -60,6 +63,10 @@ func accept_zone_trigger_input_start() -> void:
 		area.accept_trigger_input(current_element)
 	zone_trigger_countup = 0
 	_swap_element()
+
+func _stop_jump_animation() -> void:
+	if anim.animation.containsn("jumping"):
+		anim.animation = "idle"
 
 func _swap_element() -> void:
 	if current_element == Common.Elements.FIRE:
@@ -97,6 +104,7 @@ func _physics_process(delta: float) -> void:
 	# Handle jump
 	if Input.is_action_just_pressed("ui_select") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		anim.animation = "jump"
 		SoundManager.play_player_jump()
 		previously_airborn = true
 
@@ -189,6 +197,7 @@ func on_hit():
 	_die()
 
 func _die() -> void:
+	velocity = Vector2.ZERO
 	grabber.fire_projectiles()
 	_start_invulnerability()
 	on_player_death.emit()

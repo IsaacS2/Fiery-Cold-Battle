@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://3swnd57vwwol"]
+
+[ext_resource type="PackedScene" uid="uid://cf8dglma5aajw" path="res://Gameplay/BASE/non_tile_main_gameplay.tscn" id="1_fsmiu"]
+[ext_resource type="PackedScene" uid="uid://ccupd4uomkpaf" path="res://Gameplay/BASE/main_ground_tiles.tscn" id="4_mhb1c"]
+[ext_resource type="PackedScene" uid="uid://btl5ari0641f5" path="res://Gameplay/BASE/ENEMIES/enemy_patrol_path_2d.tscn" id="12_trp7m"]
+[ext_resource type="PackedScene" uid="uid://cwf7p02m0pwcn" path="res://Gameplay/BASE/ENEMIES/penguin_body_2d.tscn" id="13_37m3d"]
+[ext_resource type="PackedScene" uid="uid://bf46gjrewk27s" path="res://Gameplay/BASE/ENEMIES/jerboa_body_2d.tscn" id="14_g7cpm"]
+
+[node name="Main Gameplay" instance=ExtResource("1_fsmiu")]
+
+[node name="Ground Tiles" parent="TileMap Controller" index="0" instance=ExtResource("4_mhb1c")]
+
+[node name="Player Character" parent="." index="5"]
+position = Vector2(118, 36)
+
+[node name="PenguinBody2D" parent="." index="10" instance=ExtResource("13_37m3d")]
+position = Vector2(96, 164)
+
+[node name="PenguinBody2D2" parent="." index="11" instance=ExtResource("13_37m3d")]
+position = Vector2(417, 163)
+
+[node name="EnemyPatrolPath2D" parent="." index="12" instance=ExtResource("12_trp7m")]
+position = Vector2(96, 171)
+
+[node name="EnemyPatrolPath2D2" parent="." index="13" instance=ExtResource("12_trp7m")]
+position = Vector2(422, 186)
+
+[node name="JerboaBody2D" parent="." index="14" instance=ExtResource("14_g7cpm")]
+position = Vector2(330, 116)
+
+[node name="JerboaBody2D2" parent="." index="15" instance=ExtResource("14_g7cpm")]
+position = Vector2(183, 117)
+
+[node name="EnemyPatrolPath2D4" parent="." index="16" instance=ExtResource("12_trp7m")]
+position = Vector2(417, 172)
+
+[connection signal="tree_exited" from="PenguinBody2D" to="." method="accept_enemy_death"]
+[connection signal="tree_exited" from="PenguinBody2D2" to="." method="accept_enemy_death"]
+[connection signal="tree_exited" from="JerboaBody2D" to="." method="accept_enemy_death"]
+[connection signal="tree_exited" from="JerboaBody2D2" to="." method="accept_enemy_death"]

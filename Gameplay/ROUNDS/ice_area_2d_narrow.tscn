@@ -1,33 +1,33 @@
-[gd_scene load_steps=11 format=3 uid="uid://c8w8ra2kccgit"]
+[gd_scene load_steps=11 format=3 uid="uid://xntuqp1ask1f"]
 
-[ext_resource type="Script" path="res://Code/Elemental Zones/ice_area_2d.gd" id="1_e8o7r"]
-[ext_resource type="Texture2D" uid="uid://duyfw05qkt431" path="res://Assets, Visual/Zones/Free Smoke Fx  Pixel 04.png" id="2_pdsoo"]
+[ext_resource type="Script" path="res://Code/Elemental Zones/ice_area_2d.gd" id="1_wbage"]
+[ext_resource type="Texture2D" uid="uid://duyfw05qkt431" path="res://Assets, Visual/Zones/Free Smoke Fx  Pixel 04.png" id="2_2tnp0"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5cyh3"]
-size = Vector2(96, 40)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y8mts"]
+size = Vector2(64, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gixnv"]
-atlas = ExtResource("2_pdsoo")
+atlas = ExtResource("2_2tnp0")
 region = Rect2(0, 320, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dxkcd"]
-atlas = ExtResource("2_pdsoo")
+atlas = ExtResource("2_2tnp0")
 region = Rect2(64, 320, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_86n47"]
-atlas = ExtResource("2_pdsoo")
+atlas = ExtResource("2_2tnp0")
 region = Rect2(128, 320, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1vx12"]
-atlas = ExtResource("2_pdsoo")
+atlas = ExtResource("2_2tnp0")
 region = Rect2(192, 320, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fesre"]
-atlas = ExtResource("2_pdsoo")
+atlas = ExtResource("2_2tnp0")
 region = Rect2(256, 320, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1bk7a"]
-atlas = ExtResource("2_pdsoo")
+atlas = ExtResource("2_2tnp0")
 region = Rect2(320, 320, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bcst4"]
@@ -59,11 +59,10 @@ animations = [{
 [node name="IceArea2D" type="Area2D" groups=["Element Areas"]]
 position = Vector2(96, 168)
 collision_mask = 2
-script = ExtResource("1_e8o7r")
-zone_type = "ice"
+script = ExtResource("1_wbage")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_5cyh3")
+shape = SubResource("RectangleShape2D_y8mts")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 visible = false
