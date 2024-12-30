@@ -64,7 +64,7 @@ func deactivate() -> void:
 	collision_layer = 0
 	collision_mask = 0
 	velocity = Vector2.ZERO
-	global_position = Vector2(-1000, -1000)
+	# global_position = Vector2(-1000, -1000)
 	is_captured = false
 
 func capture() -> void:

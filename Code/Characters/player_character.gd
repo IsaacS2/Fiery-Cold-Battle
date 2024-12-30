@@ -197,6 +197,7 @@ func on_hit():
 	_die()
 
 func _die() -> void:
+	velocity = Vector2.ZERO
 	grabber.fire_projectiles()
 	_start_invulnerability()
 	on_player_death.emit()
