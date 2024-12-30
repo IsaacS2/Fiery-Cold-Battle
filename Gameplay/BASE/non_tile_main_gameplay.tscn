@@ -1,9 +1,10 @@
-[gd_scene load_steps=80 format=3 uid="uid://cf8dglma5aajw"]
+[gd_scene load_steps=81 format=3 uid="uid://cf8dglma5aajw"]
 
 [ext_resource type="Script" path="res://Gameplay/BASE/main_gameplay.gd" id="1_iyp6d"]
 [ext_resource type="Script" path="res://Code/UI/main_menu.gd" id="2_hfx4h"]
 [ext_resource type="Script" path="res://Code/UI/score_field_ui.gd" id="3_tsf3k"]
 [ext_resource type="Script" path="res://Code/UI/zone_trigger_progress_bar_ui.gd" id="4_p4dvo"]
+[ext_resource type="Texture2D" uid="uid://ctbn8v3vso36i" path="res://Gameplay/BASE/iceandfire.png" id="5_0wa3q"]
 [ext_resource type="Script" path="res://Code/Characters/player_character.gd" id="5_es8h5"]
 [ext_resource type="Texture2D" uid="uid://bmdvbin4fx1ku" path="res://Assets, Visual/Characters/foxidlespritesheet-nospark.png" id="6_afi22"]
 [ext_resource type="Texture2D" uid="uid://nydoyu32xe0x" path="res://Assets, Visual/Characters/foxidlesprite-Sheet.png" id="7_nxqy7"]
@@ -21,7 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://c8w8ra2kccgit" path="res://Gameplay/BASE/ELEMENT ZONES/ice_area_2d.tscn" id="17_xcn37"]
 [ext_resource type="PackedScene" uid="uid://xntuqp1ask1f" path="res://Gameplay/ROUNDS/ice_area_2d_narrow.tscn" id="18_qq7qd"]
 [ext_resource type="Script" path="res://Code/Projectiles/launcher_2d.gd" id="21_utlh0"]
-[ext_resource type="Texture2D" uid="uid://dnlgqndanc3fq" path="res://Assets, Visual/Tiles/world_tileset.png" id="22_jjmkw"]
+[ext_resource type="Texture2D" uid="uid://cy4sav2nohueh" path="res://Assets, Visual/Tiles/tiles.png" id="22_nv7en"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_qcmyt"]
 
@@ -414,15 +415,15 @@ radius = 4.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n6sor"]
 size = Vector2(16, 26)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4orsq"]
-atlas = ExtResource("22_jjmkw")
-region = Rect2(112, 80, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8kys"]
+atlas = ExtResource("22_nv7en")
+region = Rect2(192, 128, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fx4rr"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4orsq")
+"texture": SubResource("AtlasTexture_u8kys")
 }],
 "loop": true,
 "name": &"default",
@@ -570,6 +571,11 @@ offset_top = -24.0
 offset_right = 40.0
 offset_bottom = 8.0
 texture = SubResource("CanvasTexture_qcmyt")
+
+[node name="Sprite2D" type="Sprite2D" parent="UI Gameplay Footer/TextureRect"]
+position = Vector2(16, 16)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_0wa3q")
 
 [node name="Player Spawn Point" type="Node2D" parent="." groups=["Player Spawn"]]
 position = Vector2(256, 0)
