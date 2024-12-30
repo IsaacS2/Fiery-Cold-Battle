@@ -58,6 +58,7 @@ position = Vector2(73, 163)
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_o0jab")
+death_noise = "jerboa"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2sy4a")
