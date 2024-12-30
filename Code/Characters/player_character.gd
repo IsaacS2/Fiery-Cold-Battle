@@ -70,6 +70,7 @@ func _accept_direction_input_start(direction: Common.Direction) -> void:
 		isRightInput = true
 	if direction == Common.Direction.LEFT:
 		isLeftInput = true
+	anim.animation = "walking"
 
 func _accept_direction_input_cancel(direction: Common.Direction) -> void:
 	if direction == Common.Direction.RIGHT:
@@ -116,10 +117,15 @@ func _process_horizontal_movement(delta: float) -> void:
 	var current_direction: Common.Direction = Common.Direction.NONE
 	if isRightInput == true and isLeftInput == true:
 		current_direction = Common.Direction.NONE
+		anim.animation = "idle"
 	elif isRightInput == true:
 		current_direction = Common.Direction.RIGHT
+		anim.animation = "walking"
 	elif isLeftInput == true:
 		current_direction = Common.Direction.LEFT
+		anim.animation = "walking"
+	else:
+		anim.animation = "idle"
 	
 	var direction_value: int = Common.direction_to_value_horizontal(current_direction)
 	if direction_value == 0:
