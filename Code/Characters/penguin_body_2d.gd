@@ -30,6 +30,7 @@ func _fire_projectile() -> void:
 	var projectile: Projectile2D = pool.get_projectile()
 	if projectile:
 		projectile.global_position = fire_point.global_position
+		SoundManager.play_enemy_gun_fire()
 		projectile.activate()
 		projectile.set_path()
 

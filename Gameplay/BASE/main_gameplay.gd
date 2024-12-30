@@ -30,6 +30,7 @@ func _handle_player_death() -> void:
 	AutoloadLifeTracker._delete_life()
 	if AutoloadLifeTracker.current_life_count > 0:
 		_respawn_player()
+		SoundManager.play_player_hurt()
 	else:
 		_run_game_over()
 
@@ -40,6 +41,7 @@ func _handle_enemy_death() -> void:
 		_run_next_round()
 
 func _respawn_player() -> void:
+	player.on_spawn()
 	player.global_position = player_spawn_point.global_position
 
 func _run_game_over() -> void:

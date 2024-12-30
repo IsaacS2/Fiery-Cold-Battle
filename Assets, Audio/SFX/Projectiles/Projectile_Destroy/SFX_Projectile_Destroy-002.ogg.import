@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bq67ynqk5sitv"
+path="res://.godot/imported/SFX_Projectile_Destroy-002.ogg-fde43c90869edec06f05d80334610365.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets, Audio/SFX/Projectiles/Projectile_Destroy/SFX_Projectile_Destroy-002.ogg"
+dest_files=["res://.godot/imported/SFX_Projectile_Destroy-002.ogg-fde43c90869edec06f05d80334610365.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
