@@ -1,11 +1,12 @@
 extends Node
 
 @onready var element_state: AudioStreamPlayer = $Elemental/element_state
+@onready var adaptive_music: AudioStreamPlayer = $adaptive_music
 
 
 func play_music():
 	$music.play()
-	
+	#adaptive_music.play()
 #region Test Tones
 
 func play_test_loop():
@@ -60,6 +61,8 @@ func play_elemental_state():
 
 func switch_elemental_state(new_state):
 	element_state['parameters/switch_to_clip'] = new_state
+	adaptive_music['parameters/switch_to_clip'] = new_state
+	
 #endregion
 
 
@@ -102,6 +105,7 @@ func play_enemy_jump():
 func play_helicopter_loop():
 	#$Enemies/helicopter_blades.play()
 	pass
+	
 func stop_helicopter_loop():
 	$Enemies/helicopter_blades.stop()
 
