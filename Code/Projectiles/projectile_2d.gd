@@ -34,11 +34,13 @@ func _on_collision(collision: KinematicCollision2D) -> void:
 	var player = collider as PlayerCharacter2D
 	if player:
 		player.on_hit()
+		SoundManager.play_projectile_destroyed()
 		deactivate()
 	elif collider is EnemyBody2D:
 		print("Enemy hit")
 		var enemy = collider as EnemyBody2D
 		enemy.on_hit()
+		SoundManager.play_projectile_destroyed()
 		deactivate()
 	elif collisions_left > 0:
 		velocity = velocity.bounce(collision.get_normal())
