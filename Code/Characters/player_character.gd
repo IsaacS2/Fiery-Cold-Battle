@@ -8,6 +8,7 @@ const DECELERATION = 600.0
 const MAX_SPEED = 300.0
 const REVERSE_DECELERATION = 1200.0
 const JUMP_VELOCITY = -300.0
+const ZONE_TRIGGER_DELAY: float = 4.0
 
 var grabber: Grabber2D
 
@@ -18,6 +19,7 @@ var isFacingRight: bool = true
 var isGrounded: bool = false
 
 var current_element: Common.Elements = Common.Elements.FIRE
+var zone_trigger_countup: float 
 
 func _ready() -> void:
 	var children: Array = get_children()
@@ -25,6 +27,11 @@ func _ready() -> void:
 		if child is Grabber2D:
 			grabber = child
 			return
+	on_spawn()
+
+func on_spawn() -> void:
+	zone_trigger_countup = ZONE_TRIGGER_DELAY
+	velocity = Vector2.ZERO
 
 func accept_grab_input_start() -> void:
 	grabber.check_projectiles()
@@ -33,9 +40,12 @@ func accept_fire_input_start() -> void:
 	grabber.fire_projectiles()
 
 func accept_zone_trigger_input_start() -> void:
+	if zone_trigger_countup < ZONE_TRIGGER_DELAY:
+		return
 	var element_areas = get_tree().get_nodes_in_group(Groups.element_areas)
 	for area in element_areas:
 		area.accept_trigger_input(current_element)
+	zone_trigger_countup = 0
 	_swap_element()
 
 func _swap_element() -> void:
@@ -60,7 +70,9 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
+	
+	_zone_trigger_countup_logic(delta)
+	
 	_check_facing()
 
 	# Handle jump
@@ -71,6 +83,11 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
+func _zone_trigger_countup_logic(delta: float) -> void:
+	if zone_trigger_countup < ZONE_TRIGGER_DELAY:
+		zone_trigger_countup += delta
+	elif zone_trigger_countup > ZONE_TRIGGER_DELAY:
+		zone_trigger_countup = ZONE_TRIGGER_DELAY
 
 func _check_facing() -> void:
 	if not velocity.y < 0 and isFacingRight and isLeftInput and not isRightInput:
@@ -104,4 +121,5 @@ func on_hit():
 	_die()
 
 func _die() -> void:
+	grabber.fire_projectiles()
 	on_player_death.emit()
