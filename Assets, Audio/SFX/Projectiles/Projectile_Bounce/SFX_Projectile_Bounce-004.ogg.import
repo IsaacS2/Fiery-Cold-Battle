@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cb8guslx1135w"
+path="res://.godot/imported/SFX_Projectile_Bounce-004.ogg-04a2d5f25b9727cba1f1001daf334a28.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets, Audio/SFX/Projectiles/Projectile_Bounce/SFX_Projectile_Bounce-004.ogg"
+dest_files=["res://.godot/imported/SFX_Projectile_Bounce-004.ogg-04a2d5f25b9727cba1f1001daf334a28.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
