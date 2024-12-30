@@ -32,6 +32,9 @@ func play_enemy_gun_fire():
 
 func play_projectile_absorbed():
 	$Projectiles/projectile_absorbed.play()
+	
+func play_projectile_destroyed():
+	$Projectiles/projectile_absorbed.play()
 #endregion
 
 #region Elemental Attacks

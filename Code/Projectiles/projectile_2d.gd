@@ -47,6 +47,7 @@ func _on_collision(collision: KinematicCollision2D) -> void:
 		collisions_left -= 1
 	else:
 		deactivate()
+		SoundManager.play_projectile_destroyed()
 
 func activate() -> void:
 	visible = true
