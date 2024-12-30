@@ -74,8 +74,17 @@ func play_enemy_footstep():
 func play_enemy_jump():
 	$Enemies/enemy_jump.play()
 
-func play_enemy_death():
-	pass
+func play_enemy_death(death_cry):
+	if death_cry == 'jerboa' :
+		play_jerboa_squeal()
+		print('jerrrrb')
+	elif death_cry == 'penguin' :
+		play_penguin_honk()
+		print('honknhonk')
+	elif death_cry == 'helicopter':
+		pass
+		
+	
 #endregion
 
 func _ready() -> void:

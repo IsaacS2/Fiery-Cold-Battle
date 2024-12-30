@@ -393,6 +393,7 @@ position = Vector2(80, 176)
 
 [node name="JerboaBody2D" parent="." instance=ExtResource("19_5342x")]
 position = Vector2(392, 224)
+death_noise = ""
 
 [node name="IceArea2D" parent="." instance=ExtResource("18_fjuj4")]
 position = Vector2(232, 216)
