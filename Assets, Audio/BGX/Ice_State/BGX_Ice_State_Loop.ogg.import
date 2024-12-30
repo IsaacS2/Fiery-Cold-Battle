@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b7q8emb36jvif"
+path="res://.godot/imported/BGX_Ice_State_Loop.ogg-03003e4589f478b4904cda4a38ccd26f.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets, Audio/BGX/Ice_State/BGX_Ice_State_Loop.ogg"
+dest_files=["res://.godot/imported/BGX_Ice_State_Loop.ogg-03003e4589f478b4904cda4a38ccd26f.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
