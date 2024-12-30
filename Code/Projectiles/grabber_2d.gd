@@ -14,6 +14,7 @@ func _ready() -> void:
 
 func start_grabbing() -> void:
 	currently_grabbing = true
+	SoundManager.play_absorb_on()
 
 func check_projectiles() -> void:
 	var overlapping_bodies = get_overlapping_bodies()
@@ -23,6 +24,7 @@ func check_projectiles() -> void:
 
 func fire_projectiles() -> void:
 	currently_grabbing = false
+	SoundManager.stop_absorb_on()
 	ring.fire_projectiles()
 
 func _physics_process(delta: float) -> void:

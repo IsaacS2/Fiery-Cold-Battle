@@ -77,6 +77,10 @@ func play_player_hurt():
 func play_absorb_on():
 	$Player/absorb_on.play()
 	
+func stop_absorb_on():
+	$Player/absorb_on.stop()
+	
+	
 #endregion
 
 #region Enemies
@@ -96,8 +100,8 @@ func play_enemy_jump():
 	$Enemies/enemy_jump.play()
 
 func play_helicopter_loop():
-	$Enemies/helicopter_blades.play()
-
+	#$Enemies/helicopter_blades.play()
+	pass
 func stop_helicopter_loop():
 	$Enemies/helicopter_blades.stop()
 

@@ -281,17 +281,17 @@ bus = &"SFX"
 
 [node name="projectile_absorbed" type="AudioStreamPlayer" parent="Projectiles"]
 stream = SubResource("AudioStreamRandomizer_1m67x")
-volume_db = -3.0
+volume_db = -9.0
 bus = &"SFX"
 
 [node name="projectile_bounce" type="AudioStreamPlayer" parent="Projectiles"]
 stream = SubResource("AudioStreamRandomizer_pihfp")
-volume_db = -6.0
+volume_db = -18.0
 bus = &"SFX"
 
 [node name="projectile_destroyed" type="AudioStreamPlayer" parent="Projectiles"]
 stream = SubResource("AudioStreamRandomizer_ofinb")
-volume_db = -9.0
+volume_db = -18.0
 bus = &"SFX"
 
 [node name="enemy_gun_fire" type="AudioStreamPlayer" parent="Projectiles"]
@@ -302,18 +302,21 @@ bus = &"SFX"
 
 [node name="player_gun_fire" type="AudioStreamPlayer" parent="Projectiles"]
 stream = SubResource("AudioStreamRandomizer_6bht5")
+volume_db = -9.0
 bus = &"SFX"
 
 [node name="Player" type="Node" parent="."]
 
 [node name="absorb_on" type="AudioStreamPlayer" parent="Player"]
 stream = ExtResource("24_2b8i4")
+volume_db = -12.0
+pitch_scale = 2.09
 bus = &"SFX"
 
 [node name="player_fs" type="AudioStreamPlayer" parent="Player"]
 stream = SubResource("AudioStreamRandomizer_g1guh")
-volume_db = -30.0
-pitch_scale = 0.57
+volume_db = -21.0
+pitch_scale = 1.08
 max_polyphony = 2
 bus = &"SFX"
 
@@ -357,7 +360,7 @@ bus = &"SFX"
 [node name="helicopter_blades" type="AudioStreamPlayer" parent="Enemies"]
 stream = ExtResource("70_rhuoi")
 volume_db = -24.0
-pitch_scale = 2.0
+pitch_scale = 3.0
 bus = &"SFX"
 
 [node name="Elemental" type="Node" parent="."]
