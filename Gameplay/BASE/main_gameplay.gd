@@ -50,6 +50,7 @@ func _run_game_over() -> void:
 	AutoloadLifeTracker._init_lives()
 	AutoloadScoreTracker._set_score(0)
 	AutoloadRoundTracker._init_round()
+	get_tree().change_scene_to_file("res://Gameplay/BASE/start_screen.tscn")
 
 func _run_next_round() -> void:
 	AutoloadRoundTracker._increment_round()
